@@ -26,6 +26,8 @@ hs_err_pid*
 .classpath
 .project
 .settings/
+.metadata/
+RemoteSystemsTempFiles/
  
 # Intellij
 .idea/
