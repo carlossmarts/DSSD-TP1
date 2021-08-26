@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_package = "grpc";
+
+
+message GetUserRequest{
+	string id = 1;
+}
+
+message UserDTO{
+	string nombre= 1;
+	int32 edad = 2;
+}
+
+message Empty{}
+
+service user{
+	rpc getUser(GetUserRequest) returns(UserDTO);
+}
