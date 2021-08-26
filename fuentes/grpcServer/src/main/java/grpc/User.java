@@ -569,17 +569,22 @@ public final class User {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string nombre = 1;</code>
+     * <code>int32 id = 1;</code>
+     */
+    int getId();
+
+    /**
+     * <code>string nombre = 2;</code>
      */
     java.lang.String getNombre();
     /**
-     * <code>string nombre = 1;</code>
+     * <code>string nombre = 2;</code>
      */
     com.google.protobuf.ByteString
         getNombreBytes();
 
     /**
-     * <code>int32 edad = 2;</code>
+     * <code>int32 edad = 3;</code>
      */
     int getEdad();
   }
@@ -596,6 +601,7 @@ public final class User {
       super(builder);
     }
     private UserDTO() {
+      id_ = 0;
       nombre_ = "";
       edad_ = 0;
     }
@@ -624,13 +630,18 @@ public final class User {
             case 0:
               done = true;
               break;
-            case 10: {
+            case 8: {
+
+              id_ = input.readInt32();
+              break;
+            }
+            case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
               nombre_ = s;
               break;
             }
-            case 16: {
+            case 24: {
 
               edad_ = input.readInt32();
               break;
@@ -667,10 +678,19 @@ public final class User {
               grpc.User.UserDTO.class, grpc.User.UserDTO.Builder.class);
     }
 
-    public static final int NOMBRE_FIELD_NUMBER = 1;
+    public static final int ID_FIELD_NUMBER = 1;
+    private int id_;
+    /**
+     * <code>int32 id = 1;</code>
+     */
+    public int getId() {
+      return id_;
+    }
+
+    public static final int NOMBRE_FIELD_NUMBER = 2;
     private volatile java.lang.Object nombre_;
     /**
-     * <code>string nombre = 1;</code>
+     * <code>string nombre = 2;</code>
      */
     public java.lang.String getNombre() {
       java.lang.Object ref = nombre_;
@@ -685,7 +705,7 @@ public final class User {
       }
     }
     /**
-     * <code>string nombre = 1;</code>
+     * <code>string nombre = 2;</code>
      */
     public com.google.protobuf.ByteString
         getNombreBytes() {
@@ -701,10 +721,10 @@ public final class User {
       }
     }
 
-    public static final int EDAD_FIELD_NUMBER = 2;
+    public static final int EDAD_FIELD_NUMBER = 3;
     private int edad_;
     /**
-     * <code>int32 edad = 2;</code>
+     * <code>int32 edad = 3;</code>
      */
     public int getEdad() {
       return edad_;
@@ -724,11 +744,14 @@ public final class User {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (id_ != 0) {
+        output.writeInt32(1, id_);
+      }
       if (!getNombreBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, nombre_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nombre_);
       }
       if (edad_ != 0) {
-        output.writeInt32(2, edad_);
+        output.writeInt32(3, edad_);
       }
       unknownFields.writeTo(output);
     }
@@ -739,12 +762,16 @@ public final class User {
       if (size != -1) return size;
 
       size = 0;
+      if (id_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, id_);
+      }
       if (!getNombreBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, nombre_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nombre_);
       }
       if (edad_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, edad_);
+          .computeInt32Size(3, edad_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -762,6 +789,8 @@ public final class User {
       grpc.User.UserDTO other = (grpc.User.UserDTO) obj;
 
       boolean result = true;
+      result = result && (getId()
+          == other.getId());
       result = result && getNombre()
           .equals(other.getNombre());
       result = result && (getEdad()
@@ -777,6 +806,8 @@ public final class User {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId();
       hash = (37 * hash) + NOMBRE_FIELD_NUMBER;
       hash = (53 * hash) + getNombre().hashCode();
       hash = (37 * hash) + EDAD_FIELD_NUMBER;
@@ -914,6 +945,8 @@ public final class User {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        id_ = 0;
+
         nombre_ = "";
 
         edad_ = 0;
@@ -944,6 +977,7 @@ public final class User {
       @java.lang.Override
       public grpc.User.UserDTO buildPartial() {
         grpc.User.UserDTO result = new grpc.User.UserDTO(this);
+        result.id_ = id_;
         result.nombre_ = nombre_;
         result.edad_ = edad_;
         onBuilt();
@@ -994,6 +1028,9 @@ public final class User {
 
       public Builder mergeFrom(grpc.User.UserDTO other) {
         if (other == grpc.User.UserDTO.getDefaultInstance()) return this;
+        if (other.getId() != 0) {
+          setId(other.getId());
+        }
         if (!other.getNombre().isEmpty()) {
           nombre_ = other.nombre_;
           onChanged();
@@ -1030,9 +1067,35 @@ public final class User {
         return this;
       }
 
+      private int id_ ;
+      /**
+       * <code>int32 id = 1;</code>
+       */
+      public int getId() {
+        return id_;
+      }
+      /**
+       * <code>int32 id = 1;</code>
+       */
+      public Builder setId(int value) {
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 id = 1;</code>
+       */
+      public Builder clearId() {
+        
+        id_ = 0;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object nombre_ = "";
       /**
-       * <code>string nombre = 1;</code>
+       * <code>string nombre = 2;</code>
        */
       public java.lang.String getNombre() {
         java.lang.Object ref = nombre_;
@@ -1047,7 +1110,7 @@ public final class User {
         }
       }
       /**
-       * <code>string nombre = 1;</code>
+       * <code>string nombre = 2;</code>
        */
       public com.google.protobuf.ByteString
           getNombreBytes() {
@@ -1063,7 +1126,7 @@ public final class User {
         }
       }
       /**
-       * <code>string nombre = 1;</code>
+       * <code>string nombre = 2;</code>
        */
       public Builder setNombre(
           java.lang.String value) {
@@ -1076,7 +1139,7 @@ public final class User {
         return this;
       }
       /**
-       * <code>string nombre = 1;</code>
+       * <code>string nombre = 2;</code>
        */
       public Builder clearNombre() {
         
@@ -1085,7 +1148,7 @@ public final class User {
         return this;
       }
       /**
-       * <code>string nombre = 1;</code>
+       * <code>string nombre = 2;</code>
        */
       public Builder setNombreBytes(
           com.google.protobuf.ByteString value) {
@@ -1101,13 +1164,13 @@ public final class User {
 
       private int edad_ ;
       /**
-       * <code>int32 edad = 2;</code>
+       * <code>int32 edad = 3;</code>
        */
       public int getEdad() {
         return edad_;
       }
       /**
-       * <code>int32 edad = 2;</code>
+       * <code>int32 edad = 3;</code>
        */
       public Builder setEdad(int value) {
         
@@ -1116,7 +1179,7 @@ public final class User {
         return this;
       }
       /**
-       * <code>int32 edad = 2;</code>
+       * <code>int32 edad = 3;</code>
        */
       public Builder clearEdad() {
         
@@ -1172,6 +1235,788 @@ public final class User {
 
     @java.lang.Override
     public grpc.User.UserDTO getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ListUserDTOOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ListUserDTO)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .UserDTO list = 1;</code>
+     */
+    java.util.List<grpc.User.UserDTO> 
+        getListList();
+    /**
+     * <code>repeated .UserDTO list = 1;</code>
+     */
+    grpc.User.UserDTO getList(int index);
+    /**
+     * <code>repeated .UserDTO list = 1;</code>
+     */
+    int getListCount();
+    /**
+     * <code>repeated .UserDTO list = 1;</code>
+     */
+    java.util.List<? extends grpc.User.UserDTOOrBuilder> 
+        getListOrBuilderList();
+    /**
+     * <code>repeated .UserDTO list = 1;</code>
+     */
+    grpc.User.UserDTOOrBuilder getListOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code ListUserDTO}
+   */
+  public  static final class ListUserDTO extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ListUserDTO)
+      ListUserDTOOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ListUserDTO.newBuilder() to construct.
+    private ListUserDTO(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ListUserDTO() {
+      list_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ListUserDTO(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                list_ = new java.util.ArrayList<grpc.User.UserDTO>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              list_.add(
+                  input.readMessage(grpc.User.UserDTO.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          list_ = java.util.Collections.unmodifiableList(list_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return grpc.User.internal_static_ListUserDTO_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return grpc.User.internal_static_ListUserDTO_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              grpc.User.ListUserDTO.class, grpc.User.ListUserDTO.Builder.class);
+    }
+
+    public static final int LIST_FIELD_NUMBER = 1;
+    private java.util.List<grpc.User.UserDTO> list_;
+    /**
+     * <code>repeated .UserDTO list = 1;</code>
+     */
+    public java.util.List<grpc.User.UserDTO> getListList() {
+      return list_;
+    }
+    /**
+     * <code>repeated .UserDTO list = 1;</code>
+     */
+    public java.util.List<? extends grpc.User.UserDTOOrBuilder> 
+        getListOrBuilderList() {
+      return list_;
+    }
+    /**
+     * <code>repeated .UserDTO list = 1;</code>
+     */
+    public int getListCount() {
+      return list_.size();
+    }
+    /**
+     * <code>repeated .UserDTO list = 1;</code>
+     */
+    public grpc.User.UserDTO getList(int index) {
+      return list_.get(index);
+    }
+    /**
+     * <code>repeated .UserDTO list = 1;</code>
+     */
+    public grpc.User.UserDTOOrBuilder getListOrBuilder(
+        int index) {
+      return list_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < list_.size(); i++) {
+        output.writeMessage(1, list_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < list_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, list_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof grpc.User.ListUserDTO)) {
+        return super.equals(obj);
+      }
+      grpc.User.ListUserDTO other = (grpc.User.ListUserDTO) obj;
+
+      boolean result = true;
+      result = result && getListList()
+          .equals(other.getListList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getListCount() > 0) {
+        hash = (37 * hash) + LIST_FIELD_NUMBER;
+        hash = (53 * hash) + getListList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static grpc.User.ListUserDTO parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static grpc.User.ListUserDTO parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static grpc.User.ListUserDTO parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static grpc.User.ListUserDTO parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static grpc.User.ListUserDTO parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static grpc.User.ListUserDTO parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static grpc.User.ListUserDTO parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static grpc.User.ListUserDTO parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static grpc.User.ListUserDTO parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static grpc.User.ListUserDTO parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static grpc.User.ListUserDTO parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static grpc.User.ListUserDTO parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(grpc.User.ListUserDTO prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ListUserDTO}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ListUserDTO)
+        grpc.User.ListUserDTOOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return grpc.User.internal_static_ListUserDTO_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return grpc.User.internal_static_ListUserDTO_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                grpc.User.ListUserDTO.class, grpc.User.ListUserDTO.Builder.class);
+      }
+
+      // Construct using grpc.User.ListUserDTO.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getListFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (listBuilder_ == null) {
+          list_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          listBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return grpc.User.internal_static_ListUserDTO_descriptor;
+      }
+
+      @java.lang.Override
+      public grpc.User.ListUserDTO getDefaultInstanceForType() {
+        return grpc.User.ListUserDTO.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public grpc.User.ListUserDTO build() {
+        grpc.User.ListUserDTO result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public grpc.User.ListUserDTO buildPartial() {
+        grpc.User.ListUserDTO result = new grpc.User.ListUserDTO(this);
+        int from_bitField0_ = bitField0_;
+        if (listBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            list_ = java.util.Collections.unmodifiableList(list_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.list_ = list_;
+        } else {
+          result.list_ = listBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof grpc.User.ListUserDTO) {
+          return mergeFrom((grpc.User.ListUserDTO)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(grpc.User.ListUserDTO other) {
+        if (other == grpc.User.ListUserDTO.getDefaultInstance()) return this;
+        if (listBuilder_ == null) {
+          if (!other.list_.isEmpty()) {
+            if (list_.isEmpty()) {
+              list_ = other.list_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureListIsMutable();
+              list_.addAll(other.list_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.list_.isEmpty()) {
+            if (listBuilder_.isEmpty()) {
+              listBuilder_.dispose();
+              listBuilder_ = null;
+              list_ = other.list_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              listBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getListFieldBuilder() : null;
+            } else {
+              listBuilder_.addAllMessages(other.list_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        grpc.User.ListUserDTO parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (grpc.User.ListUserDTO) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<grpc.User.UserDTO> list_ =
+        java.util.Collections.emptyList();
+      private void ensureListIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          list_ = new java.util.ArrayList<grpc.User.UserDTO>(list_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          grpc.User.UserDTO, grpc.User.UserDTO.Builder, grpc.User.UserDTOOrBuilder> listBuilder_;
+
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public java.util.List<grpc.User.UserDTO> getListList() {
+        if (listBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(list_);
+        } else {
+          return listBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public int getListCount() {
+        if (listBuilder_ == null) {
+          return list_.size();
+        } else {
+          return listBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public grpc.User.UserDTO getList(int index) {
+        if (listBuilder_ == null) {
+          return list_.get(index);
+        } else {
+          return listBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public Builder setList(
+          int index, grpc.User.UserDTO value) {
+        if (listBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureListIsMutable();
+          list_.set(index, value);
+          onChanged();
+        } else {
+          listBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public Builder setList(
+          int index, grpc.User.UserDTO.Builder builderForValue) {
+        if (listBuilder_ == null) {
+          ensureListIsMutable();
+          list_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          listBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public Builder addList(grpc.User.UserDTO value) {
+        if (listBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureListIsMutable();
+          list_.add(value);
+          onChanged();
+        } else {
+          listBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public Builder addList(
+          int index, grpc.User.UserDTO value) {
+        if (listBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureListIsMutable();
+          list_.add(index, value);
+          onChanged();
+        } else {
+          listBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public Builder addList(
+          grpc.User.UserDTO.Builder builderForValue) {
+        if (listBuilder_ == null) {
+          ensureListIsMutable();
+          list_.add(builderForValue.build());
+          onChanged();
+        } else {
+          listBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public Builder addList(
+          int index, grpc.User.UserDTO.Builder builderForValue) {
+        if (listBuilder_ == null) {
+          ensureListIsMutable();
+          list_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          listBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public Builder addAllList(
+          java.lang.Iterable<? extends grpc.User.UserDTO> values) {
+        if (listBuilder_ == null) {
+          ensureListIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, list_);
+          onChanged();
+        } else {
+          listBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public Builder clearList() {
+        if (listBuilder_ == null) {
+          list_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          listBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public Builder removeList(int index) {
+        if (listBuilder_ == null) {
+          ensureListIsMutable();
+          list_.remove(index);
+          onChanged();
+        } else {
+          listBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public grpc.User.UserDTO.Builder getListBuilder(
+          int index) {
+        return getListFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public grpc.User.UserDTOOrBuilder getListOrBuilder(
+          int index) {
+        if (listBuilder_ == null) {
+          return list_.get(index);  } else {
+          return listBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public java.util.List<? extends grpc.User.UserDTOOrBuilder> 
+           getListOrBuilderList() {
+        if (listBuilder_ != null) {
+          return listBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(list_);
+        }
+      }
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public grpc.User.UserDTO.Builder addListBuilder() {
+        return getListFieldBuilder().addBuilder(
+            grpc.User.UserDTO.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public grpc.User.UserDTO.Builder addListBuilder(
+          int index) {
+        return getListFieldBuilder().addBuilder(
+            index, grpc.User.UserDTO.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .UserDTO list = 1;</code>
+       */
+      public java.util.List<grpc.User.UserDTO.Builder> 
+           getListBuilderList() {
+        return getListFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          grpc.User.UserDTO, grpc.User.UserDTO.Builder, grpc.User.UserDTOOrBuilder> 
+          getListFieldBuilder() {
+        if (listBuilder_ == null) {
+          listBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              grpc.User.UserDTO, grpc.User.UserDTO.Builder, grpc.User.UserDTOOrBuilder>(
+                  list_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          list_ = null;
+        }
+        return listBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ListUserDTO)
+    }
+
+    // @@protoc_insertion_point(class_scope:ListUserDTO)
+    private static final grpc.User.ListUserDTO DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new grpc.User.ListUserDTO();
+    }
+
+    public static grpc.User.ListUserDTO getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ListUserDTO>
+        PARSER = new com.google.protobuf.AbstractParser<ListUserDTO>() {
+      @java.lang.Override
+      public ListUserDTO parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ListUserDTO(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ListUserDTO> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ListUserDTO> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public grpc.User.ListUserDTO getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1600,6 +2445,11 @@ public final class User {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_UserDTO_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListUserDTO_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListUserDTO_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Empty_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -1614,9 +2464,12 @@ public final class User {
   static {
     java.lang.String[] descriptorData = {
       "\n\nuser.proto\"\034\n\016GetUserRequest\022\n\n\002id\030\001 \001" +
-      "(\t\"\'\n\007UserDTO\022\016\n\006nombre\030\001 \001(\t\022\014\n\004edad\030\002 " +
-      "\001(\005\"\007\n\005Empty2,\n\004user\022$\n\007getUser\022\017.GetUse" +
-      "rRequest\032\010.UserDTOB\006\n\004grpcb\006proto3"
+      "(\t\"3\n\007UserDTO\022\n\n\002id\030\001 \001(\005\022\016\n\006nombre\030\002 \001(" +
+      "\t\022\014\n\004edad\030\003 \001(\005\"%\n\013ListUserDTO\022\026\n\004list\030\001" +
+      " \003(\0132\010.UserDTO\"\007\n\005Empty2P\n\004user\022$\n\007getUs" +
+      "er\022\017.GetUserRequest\032\010.UserDTO\022\"\n\ngetAllU" +
+      "ser\022\006.Empty\032\014.ListUserDTOB\006\n\004grpcb\006proto" +
+      "3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1641,9 +2494,15 @@ public final class User {
     internal_static_UserDTO_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserDTO_descriptor,
-        new java.lang.String[] { "Nombre", "Edad", });
-    internal_static_Empty_descriptor =
+        new java.lang.String[] { "Id", "Nombre", "Edad", });
+    internal_static_ListUserDTO_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_ListUserDTO_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListUserDTO_descriptor,
+        new java.lang.String[] { "List", });
+    internal_static_Empty_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_Empty_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Empty_descriptor,

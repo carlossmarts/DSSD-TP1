@@ -8,12 +8,18 @@ message GetUserRequest{
 }
 
 message UserDTO{
-	string nombre= 1;
-	int32 edad = 2;
+	int32 id = 1;
+	string nombre= 2;
+	int32 edad = 3;
+}
+
+message ListUserDTO{
+	repeated UserDTO list = 1;
 }
 
 message Empty{}
 
 service user{
 	rpc getUser(GetUserRequest) returns(UserDTO);
+	rpc getAllUser(Empty) returns( ListUserDTO);
 }
