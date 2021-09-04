@@ -20,6 +20,9 @@ public class User {
 	
 	@Column(name = "edad", nullable = false)
 	private int edad;
+	
+	
+	
 	public int getId() {
 		return id;
 	}

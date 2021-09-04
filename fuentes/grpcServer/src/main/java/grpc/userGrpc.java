@@ -91,6 +91,38 @@ public final class userGrpc {
      return getGetAllUserMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<grpc.User.UserDTO,
+      grpc.User.GenericResponse> getCreateUserMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "createUser",
+      requestType = grpc.User.UserDTO.class,
+      responseType = grpc.User.GenericResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<grpc.User.UserDTO,
+      grpc.User.GenericResponse> getCreateUserMethod() {
+    io.grpc.MethodDescriptor<grpc.User.UserDTO, grpc.User.GenericResponse> getCreateUserMethod;
+    if ((getCreateUserMethod = userGrpc.getCreateUserMethod) == null) {
+      synchronized (userGrpc.class) {
+        if ((getCreateUserMethod = userGrpc.getCreateUserMethod) == null) {
+          userGrpc.getCreateUserMethod = getCreateUserMethod = 
+              io.grpc.MethodDescriptor.<grpc.User.UserDTO, grpc.User.GenericResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "user", "createUser"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  grpc.User.UserDTO.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  grpc.User.GenericResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new userMethodDescriptorSupplier("createUser"))
+                  .build();
+          }
+        }
+     }
+     return getCreateUserMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -132,6 +164,13 @@ public final class userGrpc {
       asyncUnimplementedUnaryCall(getGetAllUserMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void createUser(grpc.User.UserDTO request,
+        io.grpc.stub.StreamObserver<grpc.User.GenericResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getCreateUserMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -148,6 +187,13 @@ public final class userGrpc {
                 grpc.User.Empty,
                 grpc.User.ListUserDTO>(
                   this, METHODID_GET_ALL_USER)))
+          .addMethod(
+            getCreateUserMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                grpc.User.UserDTO,
+                grpc.User.GenericResponse>(
+                  this, METHODID_CREATE_USER)))
           .build();
     }
   }
@@ -185,6 +231,14 @@ public final class userGrpc {
       asyncUnaryCall(
           getChannel().newCall(getGetAllUserMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void createUser(grpc.User.UserDTO request,
+        io.grpc.stub.StreamObserver<grpc.User.GenericResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getCreateUserMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -217,6 +271,13 @@ public final class userGrpc {
     public grpc.User.ListUserDTO getAllUser(grpc.User.Empty request) {
       return blockingUnaryCall(
           getChannel(), getGetAllUserMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public grpc.User.GenericResponse createUser(grpc.User.UserDTO request) {
+      return blockingUnaryCall(
+          getChannel(), getCreateUserMethod(), getCallOptions(), request);
     }
   }
 
@@ -253,10 +314,19 @@ public final class userGrpc {
       return futureUnaryCall(
           getChannel().newCall(getGetAllUserMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<grpc.User.GenericResponse> createUser(
+        grpc.User.UserDTO request) {
+      return futureUnaryCall(
+          getChannel().newCall(getCreateUserMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_USER = 0;
   private static final int METHODID_GET_ALL_USER = 1;
+  private static final int METHODID_CREATE_USER = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -282,6 +352,10 @@ public final class userGrpc {
         case METHODID_GET_ALL_USER:
           serviceImpl.getAllUser((grpc.User.Empty) request,
               (io.grpc.stub.StreamObserver<grpc.User.ListUserDTO>) responseObserver);
+          break;
+        case METHODID_CREATE_USER:
+          serviceImpl.createUser((grpc.User.UserDTO) request,
+              (io.grpc.stub.StreamObserver<grpc.User.GenericResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -346,6 +420,7 @@ public final class userGrpc {
               .setSchemaDescriptor(new userFileDescriptorSupplier())
               .addMethod(getGetUserMethod())
               .addMethod(getGetAllUserMethod())
+              .addMethod(getCreateUserMethod())
               .build();
         }
       }

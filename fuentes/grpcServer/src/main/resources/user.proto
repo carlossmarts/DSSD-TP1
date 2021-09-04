@@ -3,9 +3,12 @@ syntax = "proto3";
 option java_package = "grpc";
 
 
+message Empty{}
+
 message GetUserRequest{
 	string id = 1;
 }
+
 
 message UserDTO{
 	int32 id = 1;
@@ -17,9 +20,14 @@ message ListUserDTO{
 	repeated UserDTO list = 1;
 }
 
-message Empty{}
+message GenericResponse{
+	int32 codigo = 1;
+	string msg = 2;
+}
 
 service user{
 	rpc getUser(GetUserRequest) returns(UserDTO);
 	rpc getAllUser(Empty) returns( ListUserDTO);
+	rpc createUser(UserDTO) returns(GenericResponse);
+
 }

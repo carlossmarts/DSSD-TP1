@@ -14,6 +14,418 @@ public final class User {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  public interface EmptyOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Empty)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code Empty}
+   */
+  public  static final class Empty extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Empty)
+      EmptyOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Empty.newBuilder() to construct.
+    private Empty(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Empty() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Empty(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return grpc.User.internal_static_Empty_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return grpc.User.internal_static_Empty_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              grpc.User.Empty.class, grpc.User.Empty.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof grpc.User.Empty)) {
+        return super.equals(obj);
+      }
+      grpc.User.Empty other = (grpc.User.Empty) obj;
+
+      boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static grpc.User.Empty parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static grpc.User.Empty parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static grpc.User.Empty parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static grpc.User.Empty parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static grpc.User.Empty parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static grpc.User.Empty parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static grpc.User.Empty parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static grpc.User.Empty parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static grpc.User.Empty parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static grpc.User.Empty parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static grpc.User.Empty parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static grpc.User.Empty parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(grpc.User.Empty prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Empty}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Empty)
+        grpc.User.EmptyOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return grpc.User.internal_static_Empty_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return grpc.User.internal_static_Empty_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                grpc.User.Empty.class, grpc.User.Empty.Builder.class);
+      }
+
+      // Construct using grpc.User.Empty.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return grpc.User.internal_static_Empty_descriptor;
+      }
+
+      @java.lang.Override
+      public grpc.User.Empty getDefaultInstanceForType() {
+        return grpc.User.Empty.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public grpc.User.Empty build() {
+        grpc.User.Empty result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public grpc.User.Empty buildPartial() {
+        grpc.User.Empty result = new grpc.User.Empty(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof grpc.User.Empty) {
+          return mergeFrom((grpc.User.Empty)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(grpc.User.Empty other) {
+        if (other == grpc.User.Empty.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        grpc.User.Empty parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (grpc.User.Empty) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Empty)
+    }
+
+    // @@protoc_insertion_point(class_scope:Empty)
+    private static final grpc.User.Empty DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new grpc.User.Empty();
+    }
+
+    public static grpc.User.Empty getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Empty>
+        PARSER = new com.google.protobuf.AbstractParser<Empty>() {
+      @java.lang.Override
+      public Empty parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Empty(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Empty> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Empty> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public grpc.User.Empty getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface GetUserRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:GetUserRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -2022,23 +2434,40 @@ public final class User {
 
   }
 
-  public interface EmptyOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Empty)
+  public interface GenericResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GenericResponse)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 codigo = 1;</code>
+     */
+    int getCodigo();
+
+    /**
+     * <code>string msg = 2;</code>
+     */
+    java.lang.String getMsg();
+    /**
+     * <code>string msg = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getMsgBytes();
   }
   /**
-   * Protobuf type {@code Empty}
+   * Protobuf type {@code GenericResponse}
    */
-  public  static final class Empty extends
+  public  static final class GenericResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Empty)
-      EmptyOrBuilder {
+      // @@protoc_insertion_point(message_implements:GenericResponse)
+      GenericResponseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Empty.newBuilder() to construct.
-    private Empty(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use GenericResponse.newBuilder() to construct.
+    private GenericResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Empty() {
+    private GenericResponse() {
+      codigo_ = 0;
+      msg_ = "";
     }
 
     @java.lang.Override
@@ -2046,7 +2475,7 @@ public final class User {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Empty(
+    private GenericResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2054,6 +2483,7 @@ public final class User {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2064,6 +2494,17 @@ public final class User {
             case 0:
               done = true;
               break;
+            case 8: {
+
+              codigo_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              msg_ = s;
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -2085,15 +2526,58 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return grpc.User.internal_static_Empty_descriptor;
+      return grpc.User.internal_static_GenericResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return grpc.User.internal_static_Empty_fieldAccessorTable
+      return grpc.User.internal_static_GenericResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              grpc.User.Empty.class, grpc.User.Empty.Builder.class);
+              grpc.User.GenericResponse.class, grpc.User.GenericResponse.Builder.class);
+    }
+
+    public static final int CODIGO_FIELD_NUMBER = 1;
+    private int codigo_;
+    /**
+     * <code>int32 codigo = 1;</code>
+     */
+    public int getCodigo() {
+      return codigo_;
+    }
+
+    public static final int MSG_FIELD_NUMBER = 2;
+    private volatile java.lang.Object msg_;
+    /**
+     * <code>string msg = 2;</code>
+     */
+    public java.lang.String getMsg() {
+      java.lang.Object ref = msg_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        msg_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string msg = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMsgBytes() {
+      java.lang.Object ref = msg_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        msg_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2110,6 +2594,12 @@ public final class User {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (codigo_ != 0) {
+        output.writeInt32(1, codigo_);
+      }
+      if (!getMsgBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, msg_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2119,6 +2609,13 @@ public final class User {
       if (size != -1) return size;
 
       size = 0;
+      if (codigo_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, codigo_);
+      }
+      if (!getMsgBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, msg_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2129,12 +2626,16 @@ public final class User {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof grpc.User.Empty)) {
+      if (!(obj instanceof grpc.User.GenericResponse)) {
         return super.equals(obj);
       }
-      grpc.User.Empty other = (grpc.User.Empty) obj;
+      grpc.User.GenericResponse other = (grpc.User.GenericResponse) obj;
 
       boolean result = true;
+      result = result && (getCodigo()
+          == other.getCodigo());
+      result = result && getMsg()
+          .equals(other.getMsg());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2146,74 +2647,78 @@ public final class User {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODIGO_FIELD_NUMBER;
+      hash = (53 * hash) + getCodigo();
+      hash = (37 * hash) + MSG_FIELD_NUMBER;
+      hash = (53 * hash) + getMsg().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static grpc.User.Empty parseFrom(
+    public static grpc.User.GenericResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static grpc.User.Empty parseFrom(
+    public static grpc.User.GenericResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static grpc.User.Empty parseFrom(
+    public static grpc.User.GenericResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static grpc.User.Empty parseFrom(
+    public static grpc.User.GenericResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static grpc.User.Empty parseFrom(byte[] data)
+    public static grpc.User.GenericResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static grpc.User.Empty parseFrom(
+    public static grpc.User.GenericResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static grpc.User.Empty parseFrom(java.io.InputStream input)
+    public static grpc.User.GenericResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static grpc.User.Empty parseFrom(
+    public static grpc.User.GenericResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static grpc.User.Empty parseDelimitedFrom(java.io.InputStream input)
+    public static grpc.User.GenericResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static grpc.User.Empty parseDelimitedFrom(
+    public static grpc.User.GenericResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static grpc.User.Empty parseFrom(
+    public static grpc.User.GenericResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static grpc.User.Empty parseFrom(
+    public static grpc.User.GenericResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2226,7 +2731,7 @@ public final class User {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(grpc.User.Empty prototype) {
+    public static Builder newBuilder(grpc.User.GenericResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -2242,26 +2747,26 @@ public final class User {
       return builder;
     }
     /**
-     * Protobuf type {@code Empty}
+     * Protobuf type {@code GenericResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Empty)
-        grpc.User.EmptyOrBuilder {
+        // @@protoc_insertion_point(builder_implements:GenericResponse)
+        grpc.User.GenericResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return grpc.User.internal_static_Empty_descriptor;
+        return grpc.User.internal_static_GenericResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return grpc.User.internal_static_Empty_fieldAccessorTable
+        return grpc.User.internal_static_GenericResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                grpc.User.Empty.class, grpc.User.Empty.Builder.class);
+                grpc.User.GenericResponse.class, grpc.User.GenericResponse.Builder.class);
       }
 
-      // Construct using grpc.User.Empty.newBuilder()
+      // Construct using grpc.User.GenericResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2279,23 +2784,27 @@ public final class User {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        codigo_ = 0;
+
+        msg_ = "";
+
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return grpc.User.internal_static_Empty_descriptor;
+        return grpc.User.internal_static_GenericResponse_descriptor;
       }
 
       @java.lang.Override
-      public grpc.User.Empty getDefaultInstanceForType() {
-        return grpc.User.Empty.getDefaultInstance();
+      public grpc.User.GenericResponse getDefaultInstanceForType() {
+        return grpc.User.GenericResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public grpc.User.Empty build() {
-        grpc.User.Empty result = buildPartial();
+      public grpc.User.GenericResponse build() {
+        grpc.User.GenericResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -2303,8 +2812,10 @@ public final class User {
       }
 
       @java.lang.Override
-      public grpc.User.Empty buildPartial() {
-        grpc.User.Empty result = new grpc.User.Empty(this);
+      public grpc.User.GenericResponse buildPartial() {
+        grpc.User.GenericResponse result = new grpc.User.GenericResponse(this);
+        result.codigo_ = codigo_;
+        result.msg_ = msg_;
         onBuilt();
         return result;
       }
@@ -2343,16 +2854,23 @@ public final class User {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof grpc.User.Empty) {
-          return mergeFrom((grpc.User.Empty)other);
+        if (other instanceof grpc.User.GenericResponse) {
+          return mergeFrom((grpc.User.GenericResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(grpc.User.Empty other) {
-        if (other == grpc.User.Empty.getDefaultInstance()) return this;
+      public Builder mergeFrom(grpc.User.GenericResponse other) {
+        if (other == grpc.User.GenericResponse.getDefaultInstance()) return this;
+        if (other.getCodigo() != 0) {
+          setCodigo(other.getCodigo());
+        }
+        if (!other.getMsg().isEmpty()) {
+          msg_ = other.msg_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -2368,17 +2886,112 @@ public final class User {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        grpc.User.Empty parsedMessage = null;
+        grpc.User.GenericResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (grpc.User.Empty) e.getUnfinishedMessage();
+          parsedMessage = (grpc.User.GenericResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+
+      private int codigo_ ;
+      /**
+       * <code>int32 codigo = 1;</code>
+       */
+      public int getCodigo() {
+        return codigo_;
+      }
+      /**
+       * <code>int32 codigo = 1;</code>
+       */
+      public Builder setCodigo(int value) {
+        
+        codigo_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 codigo = 1;</code>
+       */
+      public Builder clearCodigo() {
+        
+        codigo_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object msg_ = "";
+      /**
+       * <code>string msg = 2;</code>
+       */
+      public java.lang.String getMsg() {
+        java.lang.Object ref = msg_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          msg_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string msg = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMsgBytes() {
+        java.lang.Object ref = msg_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          msg_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string msg = 2;</code>
+       */
+      public Builder setMsg(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        msg_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string msg = 2;</code>
+       */
+      public Builder clearMsg() {
+        
+        msg_ = getDefaultInstance().getMsg();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string msg = 2;</code>
+       */
+      public Builder setMsgBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        msg_ = value;
+        onChanged();
         return this;
       }
       @java.lang.Override
@@ -2394,46 +3007,51 @@ public final class User {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Empty)
+      // @@protoc_insertion_point(builder_scope:GenericResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:Empty)
-    private static final grpc.User.Empty DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:GenericResponse)
+    private static final grpc.User.GenericResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new grpc.User.Empty();
+      DEFAULT_INSTANCE = new grpc.User.GenericResponse();
     }
 
-    public static grpc.User.Empty getDefaultInstance() {
+    public static grpc.User.GenericResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Empty>
-        PARSER = new com.google.protobuf.AbstractParser<Empty>() {
+    private static final com.google.protobuf.Parser<GenericResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GenericResponse>() {
       @java.lang.Override
-      public Empty parsePartialFrom(
+      public GenericResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Empty(input, extensionRegistry);
+        return new GenericResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<Empty> parser() {
+    public static com.google.protobuf.Parser<GenericResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Empty> getParserForType() {
+    public com.google.protobuf.Parser<GenericResponse> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public grpc.User.Empty getDefaultInstanceForType() {
+    public grpc.User.GenericResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Empty_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Empty_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_GetUserRequest_descriptor;
   private static final 
@@ -2450,10 +3068,10 @@ public final class User {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ListUserDTO_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Empty_descriptor;
+    internal_static_GenericResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Empty_fieldAccessorTable;
+      internal_static_GenericResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2463,13 +3081,15 @@ public final class User {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nuser.proto\"\034\n\016GetUserRequest\022\n\n\002id\030\001 \001" +
-      "(\t\"3\n\007UserDTO\022\n\n\002id\030\001 \001(\005\022\016\n\006nombre\030\002 \001(" +
-      "\t\022\014\n\004edad\030\003 \001(\005\"%\n\013ListUserDTO\022\026\n\004list\030\001" +
-      " \003(\0132\010.UserDTO\"\007\n\005Empty2P\n\004user\022$\n\007getUs" +
-      "er\022\017.GetUserRequest\032\010.UserDTO\022\"\n\ngetAllU" +
-      "ser\022\006.Empty\032\014.ListUserDTOB\006\n\004grpcb\006proto" +
-      "3"
+      "\n\nuser.proto\"\007\n\005Empty\"\034\n\016GetUserRequest\022" +
+      "\n\n\002id\030\001 \001(\t\"3\n\007UserDTO\022\n\n\002id\030\001 \001(\005\022\016\n\006no" +
+      "mbre\030\002 \001(\t\022\014\n\004edad\030\003 \001(\005\"%\n\013ListUserDTO\022" +
+      "\026\n\004list\030\001 \003(\0132\010.UserDTO\".\n\017GenericRespon" +
+      "se\022\016\n\006codigo\030\001 \001(\005\022\013\n\003msg\030\002 \001(\t2z\n\004user\022" +
+      "$\n\007getUser\022\017.GetUserRequest\032\010.UserDTO\022\"\n" +
+      "\ngetAllUser\022\006.Empty\032\014.ListUserDTO\022(\n\ncre" +
+      "ateUser\022\010.UserDTO\032\020.GenericResponseB\006\n\004g" +
+      "rpcb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2483,30 +3103,36 @@ public final class User {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_GetUserRequest_descriptor =
+    internal_static_Empty_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_Empty_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Empty_descriptor,
+        new java.lang.String[] { });
+    internal_static_GetUserRequest_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_GetUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetUserRequest_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_UserDTO_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_UserDTO_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserDTO_descriptor,
         new java.lang.String[] { "Id", "Nombre", "Edad", });
     internal_static_ListUserDTO_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_ListUserDTO_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ListUserDTO_descriptor,
         new java.lang.String[] { "List", });
-    internal_static_Empty_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_Empty_fieldAccessorTable = new
+    internal_static_GenericResponse_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_GenericResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Empty_descriptor,
-        new java.lang.String[] { });
+        internal_static_GenericResponse_descriptor,
+        new java.lang.String[] { "Codigo", "Msg", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
