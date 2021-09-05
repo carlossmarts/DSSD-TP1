@@ -37,6 +37,25 @@ public class MedicamentoDAO {
 		return medicamentos;
 	}
 	
+	public List<Medicamento> getAllMedicamentosActivos(){
+		List<Medicamento> medicamentos = new ArrayList<Medicamento>();
+
+		EntityManager em = JPAUtil.getEMF().createEntityManager();
+
+		String query = "SELECT m FROM Medicamento m join fetch m.tipo_medicamento WHERE m.activo = :activo";
+		TypedQuery<Medicamento> tq = em.createQuery(query, Medicamento.class);
+		tq.setParameter("activo", true);
+		try {
+			medicamentos = tq.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+
+		return medicamentos;
+	}
+	
 	public List<Medicamento> getAllMedicamentoByLetra(String letra){
 		List<Medicamento> medicamentos = new ArrayList<Medicamento>();
 
@@ -109,16 +128,44 @@ public class MedicamentoDAO {
 		EntityManager em = JPAUtil.getEMF().createEntityManager();
 		EntityTransaction et = null;
 
-		Medicamento tipo = null;
+		Medicamento med = null;
 
 		try {
 			et = em.getTransaction();
 			et.begin();
 
-			tipo = em.find(Medicamento.class, m.getId());
-			tipo.setActivo(activo);
+			med = em.find(Medicamento.class, m.getId());
+			med.setActivo(activo);
 
-			em.persist(tipo);
+			em.persist(med);
+			et.commit();
+		} catch (Exception ex) {
+			if (et != null) {
+				et.rollback();
+			}
+			ex.printStackTrace();
+		} finally {
+			em.close();
+		}
+	}
+	
+	public void sobreescribirMedicamento (Medicamento m) {
+		EntityManager em = JPAUtil.getEMF().createEntityManager();
+		EntityTransaction et = null;
+		
+		Medicamento med = null;
+		
+		try {
+			et = em.getTransaction();
+			et.begin();
+			
+			med = em.find(Medicamento.class, m.getId());
+			med.setDroga(m.getDroga());
+			med.setNombre(m.getNombre());
+			med.setTipo_medicamento(m.getTipo_medicamento());
+			med.setActivo(true);
+			
+			em.persist(med);
 			et.commit();
 		} catch (Exception ex) {
 			if (et != null) {
