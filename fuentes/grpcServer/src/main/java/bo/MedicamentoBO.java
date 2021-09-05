@@ -20,24 +20,46 @@ public class MedicamentoBO {
 		return instancia;
 	}
 
-	public List<Medicamento> getAllMedicamento(){
-		return MedicamentoDAO.getInstance().getAllMedicamentosActivos();
+	public List<Medicamento> getAllMedicamento() throws Exception{
+		try {
+			return MedicamentoDAO.getInstance().getAllMedicamentosActivos();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw new Exception ("Error, no se pudo decuperar la lista de medicamentos");
+		}
 	}
 
-	public Medicamento getByCodigoMedicamento(String codigo) {
+	public Medicamento getByCodigoMedicamento(String codigo) throws Exception {
 		Medicamento retorno = null;
-		Medicamento tm =  MedicamentoDAO.getInstance().getByCodigoMedicamento(codigo);
+		Medicamento tm = null;
+		try {
+			tm = MedicamentoDAO.getInstance().getByCodigoMedicamento(codigo);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw new Exception ("Error, no se pudo recuperar medicamento con el código indicado");
+		}
 		if (tm.isActivo()) {
 			retorno = tm;
+		} else {
+			throw new Exception ("El medicamento se encuenta dado de baja");
 		}
 		return retorno;
 	}
 
-	public List<Medicamento> getAllMedicamentoByLetra(String letra) {
+	public List<Medicamento> getAllMedicamentoByLetra(String letra) throws Exception {
 		List<Medicamento> retorno = new ArrayList<Medicamento>(); 
 		letra +="%";
-		retorno =  MedicamentoDAO.getInstance().getAllMedicamentoByLetra(letra);
-		return retorno.stream().filter(m->m.isActivo()).collect(Collectors.toList());
+		try {
+			List<Medicamento> lista =  MedicamentoDAO.getInstance().getAllMedicamentoByLetra(letra);
+			retorno = lista.stream().filter(m->m.isActivo()).collect(Collectors.toList());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw new Exception ("Error, no se pudo recuperar lista de medicamentos");
+		}
+		if(retorno.isEmpty()) {
+			throw new Exception("No hay medicamentos que empiecen con esa letra");
+		}
+		return retorno;
 	}
 
 	public boolean addMedicamento(Medicamento m) throws Exception {
@@ -45,7 +67,7 @@ public class MedicamentoBO {
 		boolean retorno = false;
 		try {
 			med = MedicamentoDAO.getInstance().getByCodigoMedicamento(m.getcod_medicamento());			
-		} catch ( NoResultException e) {
+		} catch ( Exception e) {
 			System.out.println(e.getMessage());
 		}
 
@@ -62,7 +84,12 @@ public class MedicamentoBO {
 		return retorno;
 	}
 
-	public void deleteMedicamento (Medicamento m) {
-		MedicamentoDAO.getInstance().deleteMedicamento(m);;
+	public void deleteMedicamento (Medicamento m) throws Exception {
+		try {
+			MedicamentoDAO.getInstance().deleteMedicamento(m);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw new Exception ("Error al eliminar Medicamento");
+		};
 	}
 }

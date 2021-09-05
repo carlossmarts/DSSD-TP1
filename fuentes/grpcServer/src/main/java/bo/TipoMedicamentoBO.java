@@ -23,15 +23,26 @@ public class TipoMedicamentoBO {
 		return instancia;
 	}
 
-	public List<TipoMedicamento> getAllTipoMedicamento(){
-		return TipoMedicamentoDAO.getInstance().getAllTipoMedicamento();
+	public List<TipoMedicamento> getAllTipoMedicamento() throws Exception{
+		try {
+			return TipoMedicamentoDAO.getInstance().getAllTipoMedicamento();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw new Exception("Error: No se pudo traer lista de tipos de medicamentos");
+		}
 	}
 
-	public TipoMedicamento getByNombreTipoMedicamento(String nombreTipo){
+	public TipoMedicamento getByNombreTipoMedicamento(String nombreTipo) throws Exception{
 		TipoMedicamento retorno = null;
-		TipoMedicamento tm =  TipoMedicamentoDAO.getInstance().getByNombreTipoMedicamento(nombreTipo);
-		if (tm.isActivo()) {
-			retorno = tm;
+		TipoMedicamento tm;
+		try {
+			tm = TipoMedicamentoDAO.getInstance().getByNombreTipoMedicamento(nombreTipo);
+			if (tm.isActivo()) {
+				retorno = tm;
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw new Exception("Error: No se pudo traer tipo de medicamento");
 		}
 		return retorno;
 	}
@@ -41,8 +52,8 @@ public class TipoMedicamentoBO {
 		boolean retorno = false;
 		try {
 			tm = TipoMedicamentoDAO.getInstance().getByNombreTipoMedicamento(nombre);			
-		} catch ( NoResultException e) {
-			System.out.println(e.getMessage());
+		} catch ( Exception e) {
+			System.out.println(e.getMessage());  		//solo se imprime porque no es bloqueante para el método
 		}
 
 		if(tm != null) {
@@ -58,7 +69,12 @@ public class TipoMedicamentoBO {
 		return retorno;
 	}
 
-	public void deleteTipoMedicamento (String nombre) {
-		TipoMedicamentoDAO.getInstance().deleteTipoMedicamento(nombre);
+	public void deleteTipoMedicamento (String nombre) throws Exception {
+		try {
+			TipoMedicamentoDAO.getInstance().deleteTipoMedicamento(nombre);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw new Exception("Error: No se pudo borrar tipo de medicamentos");
+		}
 	}
 }

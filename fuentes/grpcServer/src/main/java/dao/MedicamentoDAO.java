@@ -19,7 +19,7 @@ public class MedicamentoDAO {
 		return instancia;
 	}
 
-	public List<Medicamento> getAllMedicamento(){
+	public List<Medicamento> getAllMedicamento() throws Exception{
 		List<Medicamento> medicamentos = new ArrayList<Medicamento>();
 
 		EntityManager em = JPAUtil.getEMF().createEntityManager();
@@ -29,15 +29,16 @@ public class MedicamentoDAO {
 		try {
 			medicamentos = tq.getResultList();
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Error: " + e.getMessage());
+			throw new Exception("error de persistencia en método GetAllMedicamento");
 		} finally {
 			em.close();
 		}
 
 		return medicamentos;
 	}
-	
-	public List<Medicamento> getAllMedicamentosActivos(){
+
+	public List<Medicamento> getAllMedicamentosActivos() throws Exception{
 		List<Medicamento> medicamentos = new ArrayList<Medicamento>();
 
 		EntityManager em = JPAUtil.getEMF().createEntityManager();
@@ -48,15 +49,16 @@ public class MedicamentoDAO {
 		try {
 			medicamentos = tq.getResultList();
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Error: " + e.getMessage());
+			throw new Exception("error de persistencia en método GetAllMedicamentosActivos");
 		} finally {
 			em.close();
 		}
 
 		return medicamentos;
 	}
-	
-	public List<Medicamento> getAllMedicamentoByLetra(String letra){
+
+	public List<Medicamento> getAllMedicamentoByLetra(String letra) throws Exception{
 		List<Medicamento> medicamentos = new ArrayList<Medicamento>();
 
 		EntityManager em = JPAUtil.getEMF().createEntityManager();
@@ -67,17 +69,18 @@ public class MedicamentoDAO {
 		try {
 			medicamentos = tq.getResultList();
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Error: " + e.getMessage());
+			throw new Exception("error de persistencia en método GetAllMedicamentosByLetra");
 		} finally {
 			em.close();
 		}
 
 		return medicamentos;
 	}
-	
-	
 
-	public Medicamento getByCodigoMedicamento(String codigo){
+
+
+	public Medicamento getByCodigoMedicamento(String codigo) throws Exception{
 		Medicamento tipo = null;
 
 		EntityManager em = JPAUtil.getEMF().createEntityManager();
@@ -88,7 +91,8 @@ public class MedicamentoDAO {
 		try {
 			tipo = tq.getSingleResult();
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println("Error: " + e.getMessage());
+			throw new Exception("error de persistencia en método GetByCodigoMedicamento");
 		} finally {
 			em.close();
 		}
@@ -96,7 +100,7 @@ public class MedicamentoDAO {
 		return tipo;
 	}
 
-	public boolean addMedicamento(Medicamento m) {
+	public boolean addMedicamento(Medicamento m) throws Exception {
 
 		boolean retorno = false;
 		EntityManager em = JPAUtil.getEMF().createEntityManager();
@@ -113,18 +117,24 @@ public class MedicamentoDAO {
 			if (et != null) {
 				et.rollback();
 			}
-			ex.printStackTrace();
+			System.out.println("Error: " + ex.getMessage());
+			throw new Exception("error de persistencia en método addMedicamento");
 		} finally {
 			em.close();
 		}
 		return retorno;
 	}
 
-	public void deleteMedicamento (Medicamento m) {
-		modificarActivo(m, false);
+	public void deleteMedicamento (Medicamento m) throws Exception {
+		try {
+			modificarActivo(m, false);			
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			throw new Exception("error de persistencia en método deleteMedicamento");
+		}
 	}
 
-	public void modificarActivo (Medicamento m, boolean activo) {
+	public void modificarActivo (Medicamento m, boolean activo) throws Exception {
 		EntityManager em = JPAUtil.getEMF().createEntityManager();
 		EntityTransaction et = null;
 
@@ -143,35 +153,37 @@ public class MedicamentoDAO {
 			if (et != null) {
 				et.rollback();
 			}
-			ex.printStackTrace();
+			System.out.println("Error: " + ex.getMessage());
+			throw new Exception("error de persistencia en método ModificarActivo");
 		} finally {
 			em.close();
 		}
 	}
-	
-	public void sobreescribirMedicamento (Medicamento m) {
+
+	public void sobreescribirMedicamento (Medicamento m) throws Exception {
 		EntityManager em = JPAUtil.getEMF().createEntityManager();
 		EntityTransaction et = null;
-		
+
 		Medicamento med = null;
-		
+
 		try {
 			et = em.getTransaction();
 			et.begin();
-			
+
 			med = em.find(Medicamento.class, m.getId());
 			med.setDroga(m.getDroga());
 			med.setNombre(m.getNombre());
 			med.setTipo_medicamento(m.getTipo_medicamento());
 			med.setActivo(true);
-			
+
 			em.persist(med);
 			et.commit();
 		} catch (Exception ex) {
 			if (et != null) {
 				et.rollback();
 			}
-			ex.printStackTrace();
+			System.out.println("Error: " + ex.getMessage());
+			throw new Exception("error de persistencia en método sobreescribirMedicamento");
 		} finally {
 			em.close();
 		}
