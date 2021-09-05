@@ -11,11 +11,11 @@ import model.TipoMedicamento;
 import model.User;
 
 public class TipoMedicamentoDAO {
-	private static UserDAO instancia;
+	private static TipoMedicamentoDAO instancia;
 
-	public static UserDAO getInstance() {
+	public static TipoMedicamentoDAO getInstance() {
 		if(instancia == null) {
-			instancia = new UserDAO();
+			instancia = new TipoMedicamentoDAO();
 		}
 		return instancia;
 	}
@@ -39,7 +39,7 @@ public class TipoMedicamentoDAO {
 	}
 
 	public TipoMedicamento getByNombreTipoMedicamento(String nombreTipo){
-		TipoMedicamento tipo = new TipoMedicamento();
+		TipoMedicamento tipo = null;
 
 		EntityManager em = JPAUtil.getEMF().createEntityManager();
 
@@ -49,7 +49,7 @@ public class TipoMedicamentoDAO {
 		try {
 			tipo = tq.getSingleResult();
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		} finally {
 			em.close();
 		}
@@ -102,7 +102,7 @@ public class TipoMedicamentoDAO {
             et.begin();
  
             tipo = em.find(TipoMedicamento.class, nombre);
-            tipo.setActivo(false);
+            tipo.setActivo(activo);
  
             em.persist(tipo);
             et.commit();

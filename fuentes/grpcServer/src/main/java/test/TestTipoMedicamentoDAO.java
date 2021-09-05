@@ -16,11 +16,11 @@ public class TestTipoMedicamentoDAO {
 
 		System.out.println("----------------------------------");
 		System.out.println("Test getByNombre");
-		System.out.println(dao.getByNombreTipoMedicamento("capsula"));
+		System.out.println(dao.getByNombreTipoMedicamento("dsa"));
 
 
 		System.out.println("----------------------------------");
-		System.out.println("Test add tipo");
+//		System.out.println("Test add tipo");
 //		dao.addTipoMedicamento("jarabe");
 //		tipos = dao.getAllTipoMedicamento();
 //		tipos.forEach(tipo -> System.out.println(tipo));
