@@ -38,6 +38,27 @@ public class TipoMedicamentoDAO {
 
 		return tipos;
 	}
+	
+	public List<TipoMedicamento> getAllTipoMedicamentoActivo() throws Exception{
+		List<TipoMedicamento> tipos = new ArrayList<TipoMedicamento>();
+		
+		EntityManager em = JPAUtil.getEMF().createEntityManager();
+		
+		String query = "SELECT tp FROM TipoMedicamento tp WHERE tp.activo = :activo";
+		TypedQuery<TipoMedicamento> tq = em.createQuery(query, TipoMedicamento.class);
+		tq.setParameter("activo", true);
+		try {
+			tipos = tq.getResultList();
+		} catch (Exception e) {
+			String msg = "Error de persistencia - Método GetAllTipoMedicamento: " + e.getMessage();
+			System.out.println(msg);
+			throw new Exception(msg);
+		} finally {
+			em.close();
+		}
+		
+		return tipos;
+	}
 
 	public TipoMedicamento getByNombreTipoMedicamento(String nombreTipo) throws Exception{
 		TipoMedicamento tipo = null;

@@ -2,6 +2,7 @@ package bo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -10,6 +11,7 @@ import javax.persistence.TypedQuery;
 
 import dao.JPAUtil;
 import dao.TipoMedicamentoDAO;
+import javassist.expr.NewArray;
 import model.TipoMedicamento;
 
 public class TipoMedicamentoBO {
@@ -31,6 +33,17 @@ public class TipoMedicamentoBO {
 			throw new Exception("Error: No se pudo traer lista de tipos de medicamentos");
 		}
 	}
+	
+	public List<TipoMedicamento> getAllTipoMedicamentoActivo() throws Exception{
+		try {
+			return TipoMedicamentoDAO.getInstance().getAllTipoMedicamentoActivo();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw new Exception("Error: No se pudo traer lista de tipos de medicamentos");
+		}
+	}
+	
+	
 
 	public TipoMedicamento getByNombreTipoMedicamento(String nombreTipo) throws Exception{
 		TipoMedicamento retorno = null;
@@ -53,7 +66,7 @@ public class TipoMedicamentoBO {
 		try {
 			tm = TipoMedicamentoDAO.getInstance().getByNombreTipoMedicamento(nombre);			
 		} catch ( Exception e) {
-			System.out.println(e.getMessage());  		//solo se imprime porque no es bloqueante para el método
+			System.out.println("No hay tipo preexistente, se puede agregar"); 
 		}
 
 		if(tm != null) {

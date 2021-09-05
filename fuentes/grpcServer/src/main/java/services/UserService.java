@@ -21,8 +21,6 @@ public class UserService extends userImplBase{
 
 		UserDTO.Builder response = mapUserToDTO(u);
 		
-		responseObserver.onNext(response.build());
-		responseObserver.onCompleted();
 	}
 
 	@Override
