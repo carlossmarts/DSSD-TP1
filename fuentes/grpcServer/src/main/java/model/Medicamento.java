@@ -17,8 +17,11 @@ import javax.persistence.Table;
 public class Medicamento {
 	private static final long serialVersionUID = 1L;
 	@Id
+	@Column(name="id", unique = true)
+	private int id;
+	
 	@Column(name="cod_medicamento", unique = true)
-	private int cod_Medicamento;
+	private String cod_medicamento;
 	
 	@Column(name = "nombre", nullable = false )
 	private String nombre;
@@ -35,21 +38,32 @@ public class Medicamento {
 	
 	
 	
-	
-	public Medicamento(int cod_Medicamento, String nombre, String droga, boolean activo,
+	public Medicamento(int id, String cod_medicamento, String nombre, String droga, boolean activo,
 			TipoMedicamento tipo_medicamento) {
 		super();
-		this.cod_Medicamento = cod_Medicamento;
+		this.id = id;
+		this.cod_medicamento = cod_medicamento;
 		this.nombre = nombre;
 		this.droga = droga;
 		this.activo = activo;
 		this.tipo_medicamento = tipo_medicamento;
 	}
-	public int getCod_Medicamento() {
-		return cod_Medicamento;
+
+
+	public Medicamento() {}
+	
+	
+	public int getId() {
+		return id;
 	}
-	public void setCod_Medicamento(int cod_Medicamento) {
-		this.cod_Medicamento = cod_Medicamento;
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getcod_medicamento() {
+		return cod_medicamento;
+	}
+	public void setcod_medicamento(String cod_medicamento) {
+		this.cod_medicamento = cod_medicamento;
 	}
 	public String getNombre() {
 		return nombre;
@@ -77,9 +91,11 @@ public class Medicamento {
 	}
 	@Override
 	public String toString() {
-		return "Medicamento [cod_Medicamento=" + cod_Medicamento + ", nombre=" + nombre + ", droga=" + droga
-				+ ", activo=" + activo + ", tipo_medicamento=" + tipo_medicamento + "]";
+		return "Medicamento [id=" + id + ", cod_medicamento=" + cod_medicamento + ", nombre=" + nombre + ", droga="
+				+ droga + ", activo=" + activo + ", tipo_medicamento=" + tipo_medicamento + "]";
 	}
+	
+	
 	
 	
 	

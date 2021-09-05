@@ -28,7 +28,12 @@ public class TipoMedicamentoBO {
 	}
 
 	public TipoMedicamento getByNombreTipoMedicamento(String nombreTipo){
-		return TipoMedicamentoDAO.getInstance().getByNombreTipoMedicamento(nombreTipo);
+		TipoMedicamento retorno = null;
+		TipoMedicamento tm =  TipoMedicamentoDAO.getInstance().getByNombreTipoMedicamento(nombreTipo);
+		if (tm.isActivo()) {
+			retorno = tm;
+		}
+		return retorno;
 	}
 
 	public boolean addTipoMedicamento(String nombre) throws Exception {
