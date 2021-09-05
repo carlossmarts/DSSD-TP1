@@ -5538,15 +5538,15 @@ public final class MedicamentoOuterClass {
       "ipo\030\005 \001(\t\022!\n\010response\030\006 \001(\0132\017.ServerResp" +
       "onse\"^\n\022ListMedicamentoDTO\022%\n\014medicament" +
       "os\030\001 \003(\0132\017.MedicamentoDTO\022!\n\010response\030\002 " +
-      "\001(\0132\017.ServerResponse2\272\002\n\013Medicamento\0220\n\021" +
+      "\001(\0132\017.ServerResponse2\257\002\n\013Medicamento\0220\n\021" +
       "getAllMedicamento\022\006.Empty\032\023.ListMedicame" +
       "ntoDTO\022B\n\026getMedicamentosByLetra\022\023.GetBy" +
-      "NombreRequest\032\023.ListMedicamentoDTO\022C\n\030ge" +
-      "tByNameTipoMedicamento\022\023.GetByNombreRequ" +
-      "est\032\022.MedicamentoResDTO\0226\n\022addTipoMedica" +
-      "mento\022\017.MedicamentoDTO\032\017.ServerResponse\022" +
-      "8\n\024deleteTipoMedicamnto\022\017.MedicamentoDTO" +
-      "\032\017.ServerResponseB\006\n\004grpcb\006proto3"
+      "NombreRequest\032\023.ListMedicamentoDTO\022@\n\024ge" +
+      "tByTipoMedicamento\022\023.GetByNombreRequest\032" +
+      "\023.ListMedicamentoDTO\0222\n\016addMedicamento\022\017" +
+      ".MedicamentoDTO\032\017.ServerResponse\0224\n\020dele" +
+      "teMedicamnto\022\017.MedicamentoDTO\032\017.ServerRe" +
+      "sponseB\006\n\004grpcb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

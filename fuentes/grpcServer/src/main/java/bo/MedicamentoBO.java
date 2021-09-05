@@ -61,6 +61,20 @@ public class MedicamentoBO {
 		}
 		return retorno;
 	}
+	
+	public List<Medicamento> getAllMedicamentoByTipo(String tipo) throws Exception {
+		List<Medicamento> retorno = new ArrayList<Medicamento>(); 
+		try {
+			retorno =  MedicamentoDAO.getInstance().getAllMedicamentoByTipo(tipo);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw new Exception ("Error, no se pudo recuperar lista de medicamentos");
+		}
+		if(retorno.isEmpty()) {
+			throw new Exception("No hay medicamentos activos de ese tipo");
+		}
+		return retorno;
+	}
 
 	public boolean addMedicamento(Medicamento m) throws Exception {
 		Medicamento med = null;

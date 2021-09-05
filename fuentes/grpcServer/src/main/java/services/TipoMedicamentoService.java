@@ -6,18 +6,16 @@ import java.util.List;
 import com.sun.istack.NotNull;
 
 import bo.TipoMedicamentoBO;
-import dao.TipoMedicamentoDAO;
 import grpc.TipoMedicamento.Empty;
 import grpc.TipoMedicamento.GetByNombreRequest;
 import grpc.TipoMedicamento.ListTipoMedicamentoDTO;
 import grpc.TipoMedicamento.ServerResponse;
 import grpc.TipoMedicamento.TipoMedicamentoDTO;
 import grpc.TipoMedicamento.TipoMedicamentoResDTO;
-import grpc.User.UserDTO;
 import grpc.tipoMedicamentoGrpc.tipoMedicamentoImplBase;
 import io.grpc.stub.StreamObserver;
 import model.TipoMedicamento;
-import model.User;
+
 
 public class TipoMedicamentoService extends tipoMedicamentoImplBase{
 
@@ -28,8 +26,8 @@ public class TipoMedicamentoService extends tipoMedicamentoImplBase{
 
 		List<TipoMedicamento> tipos = new ArrayList<TipoMedicamento>();
 		try {
-			tipos = TipoMedicamentoBO.getInstance().getAllTipoMedicamento();		//este va para testing
-//			tipos = TipoMedicamentoBO.getInstance().getAllTipoMedicamentoActivo(); //este va para cuando se llama desde el frontend
+//			tipos = TipoMedicamentoBO.getInstance().getAllTipoMedicamento();		//este va para testing
+			tipos = TipoMedicamentoBO.getInstance().getAllTipoMedicamentoActivo(); //este va para cuando se llama desde el frontend
 		} catch (Exception e) {
 			serverResponse.setCode(500);
 			serverResponse.setMsg(e.getMessage());

@@ -50,7 +50,7 @@ message ListMedicamentoDTO{			//GetAllResponse, getByLetraResponse
 service Medicamento{
 	rpc getAllMedicamento (Empty) returns (ListMedicamentoDTO);
 	rpc getMedicamentosByLetra (GetByNombreRequest) returns (ListMedicamentoDTO);
-	rpc getByNameTipoMedicamento (GetByNombreRequest) returns (MedicamentoResDTO);
-	rpc addTipoMedicamento (MedicamentoDTO) returns (ServerResponse);
-	rpc deleteTipoMedicamnto (MedicamentoDTO) returns (ServerResponse);
+	rpc getByTipoMedicamento (GetByNombreRequest) returns (ListMedicamentoDTO);
+	rpc addMedicamento (MedicamentoDTO) returns (ServerResponse);
+	rpc deleteMedicamnto (MedicamentoDTO) returns (ServerResponse);
 }

@@ -58,6 +58,26 @@ public class MedicamentoDAO {
 		return medicamentos;
 	}
 
+	public List<Medicamento> getAllMedicamentoByTipo(String tipo) throws Exception {
+		List<Medicamento> medicamentos = new ArrayList<Medicamento>();
+
+		EntityManager em = JPAUtil.getEMF().createEntityManager();
+
+		String query = "SELECT m FROM Medicamento m join fetch m.tipo_medicamento tm WHERE tm.nombre_tipo = :nombre";
+		TypedQuery<Medicamento> tq = em.createQuery(query, Medicamento.class);
+		tq.setParameter("nombre", tipo);
+		try {
+			medicamentos = tq.getResultList();
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			throw new Exception("error de persistencia en método GetAllMedicamentosByTipo");
+		} finally {
+			em.close();
+		}
+
+		return medicamentos;
+	}
+	
 	public List<Medicamento> getAllMedicamentoByLetra(String letra) throws Exception{
 		List<Medicamento> medicamentos = new ArrayList<Medicamento>();
 
@@ -188,4 +208,5 @@ public class MedicamentoDAO {
 			em.close();
 		}
 	}
+
 }

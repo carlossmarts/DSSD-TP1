@@ -11,7 +11,6 @@ public class GRPCServer {
 		System.out.println("Iniciando servidor grpc");
 		
 		Server server = ServerBuilder.forPort(9000)
-						.addService(new UserService())
 						.addService(new TipoMedicamentoService())
 						.addService(new MedicamentoService())
 						.build();

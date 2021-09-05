@@ -92,99 +92,99 @@ public final class MedicamentoGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<grpc.MedicamentoOuterClass.GetByNombreRequest,
-      grpc.MedicamentoOuterClass.MedicamentoResDTO> getGetByNameTipoMedicamentoMethod;
+      grpc.MedicamentoOuterClass.ListMedicamentoDTO> getGetByTipoMedicamentoMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "getByNameTipoMedicamento",
+      fullMethodName = SERVICE_NAME + '/' + "getByTipoMedicamento",
       requestType = grpc.MedicamentoOuterClass.GetByNombreRequest.class,
-      responseType = grpc.MedicamentoOuterClass.MedicamentoResDTO.class,
+      responseType = grpc.MedicamentoOuterClass.ListMedicamentoDTO.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<grpc.MedicamentoOuterClass.GetByNombreRequest,
-      grpc.MedicamentoOuterClass.MedicamentoResDTO> getGetByNameTipoMedicamentoMethod() {
-    io.grpc.MethodDescriptor<grpc.MedicamentoOuterClass.GetByNombreRequest, grpc.MedicamentoOuterClass.MedicamentoResDTO> getGetByNameTipoMedicamentoMethod;
-    if ((getGetByNameTipoMedicamentoMethod = MedicamentoGrpc.getGetByNameTipoMedicamentoMethod) == null) {
+      grpc.MedicamentoOuterClass.ListMedicamentoDTO> getGetByTipoMedicamentoMethod() {
+    io.grpc.MethodDescriptor<grpc.MedicamentoOuterClass.GetByNombreRequest, grpc.MedicamentoOuterClass.ListMedicamentoDTO> getGetByTipoMedicamentoMethod;
+    if ((getGetByTipoMedicamentoMethod = MedicamentoGrpc.getGetByTipoMedicamentoMethod) == null) {
       synchronized (MedicamentoGrpc.class) {
-        if ((getGetByNameTipoMedicamentoMethod = MedicamentoGrpc.getGetByNameTipoMedicamentoMethod) == null) {
-          MedicamentoGrpc.getGetByNameTipoMedicamentoMethod = getGetByNameTipoMedicamentoMethod = 
-              io.grpc.MethodDescriptor.<grpc.MedicamentoOuterClass.GetByNombreRequest, grpc.MedicamentoOuterClass.MedicamentoResDTO>newBuilder()
+        if ((getGetByTipoMedicamentoMethod = MedicamentoGrpc.getGetByTipoMedicamentoMethod) == null) {
+          MedicamentoGrpc.getGetByTipoMedicamentoMethod = getGetByTipoMedicamentoMethod = 
+              io.grpc.MethodDescriptor.<grpc.MedicamentoOuterClass.GetByNombreRequest, grpc.MedicamentoOuterClass.ListMedicamentoDTO>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "Medicamento", "getByNameTipoMedicamento"))
+                  "Medicamento", "getByTipoMedicamento"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   grpc.MedicamentoOuterClass.GetByNombreRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.MedicamentoOuterClass.MedicamentoResDTO.getDefaultInstance()))
-                  .setSchemaDescriptor(new MedicamentoMethodDescriptorSupplier("getByNameTipoMedicamento"))
+                  grpc.MedicamentoOuterClass.ListMedicamentoDTO.getDefaultInstance()))
+                  .setSchemaDescriptor(new MedicamentoMethodDescriptorSupplier("getByTipoMedicamento"))
                   .build();
           }
         }
      }
-     return getGetByNameTipoMedicamentoMethod;
+     return getGetByTipoMedicamentoMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<grpc.MedicamentoOuterClass.MedicamentoDTO,
-      grpc.MedicamentoOuterClass.ServerResponse> getAddTipoMedicamentoMethod;
+      grpc.MedicamentoOuterClass.ServerResponse> getAddMedicamentoMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "addTipoMedicamento",
+      fullMethodName = SERVICE_NAME + '/' + "addMedicamento",
       requestType = grpc.MedicamentoOuterClass.MedicamentoDTO.class,
       responseType = grpc.MedicamentoOuterClass.ServerResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<grpc.MedicamentoOuterClass.MedicamentoDTO,
-      grpc.MedicamentoOuterClass.ServerResponse> getAddTipoMedicamentoMethod() {
-    io.grpc.MethodDescriptor<grpc.MedicamentoOuterClass.MedicamentoDTO, grpc.MedicamentoOuterClass.ServerResponse> getAddTipoMedicamentoMethod;
-    if ((getAddTipoMedicamentoMethod = MedicamentoGrpc.getAddTipoMedicamentoMethod) == null) {
+      grpc.MedicamentoOuterClass.ServerResponse> getAddMedicamentoMethod() {
+    io.grpc.MethodDescriptor<grpc.MedicamentoOuterClass.MedicamentoDTO, grpc.MedicamentoOuterClass.ServerResponse> getAddMedicamentoMethod;
+    if ((getAddMedicamentoMethod = MedicamentoGrpc.getAddMedicamentoMethod) == null) {
       synchronized (MedicamentoGrpc.class) {
-        if ((getAddTipoMedicamentoMethod = MedicamentoGrpc.getAddTipoMedicamentoMethod) == null) {
-          MedicamentoGrpc.getAddTipoMedicamentoMethod = getAddTipoMedicamentoMethod = 
+        if ((getAddMedicamentoMethod = MedicamentoGrpc.getAddMedicamentoMethod) == null) {
+          MedicamentoGrpc.getAddMedicamentoMethod = getAddMedicamentoMethod = 
               io.grpc.MethodDescriptor.<grpc.MedicamentoOuterClass.MedicamentoDTO, grpc.MedicamentoOuterClass.ServerResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "Medicamento", "addTipoMedicamento"))
+                  "Medicamento", "addMedicamento"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   grpc.MedicamentoOuterClass.MedicamentoDTO.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   grpc.MedicamentoOuterClass.ServerResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new MedicamentoMethodDescriptorSupplier("addTipoMedicamento"))
+                  .setSchemaDescriptor(new MedicamentoMethodDescriptorSupplier("addMedicamento"))
                   .build();
           }
         }
      }
-     return getAddTipoMedicamentoMethod;
+     return getAddMedicamentoMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<grpc.MedicamentoOuterClass.MedicamentoDTO,
-      grpc.MedicamentoOuterClass.ServerResponse> getDeleteTipoMedicamntoMethod;
+      grpc.MedicamentoOuterClass.ServerResponse> getDeleteMedicamntoMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "deleteTipoMedicamnto",
+      fullMethodName = SERVICE_NAME + '/' + "deleteMedicamnto",
       requestType = grpc.MedicamentoOuterClass.MedicamentoDTO.class,
       responseType = grpc.MedicamentoOuterClass.ServerResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<grpc.MedicamentoOuterClass.MedicamentoDTO,
-      grpc.MedicamentoOuterClass.ServerResponse> getDeleteTipoMedicamntoMethod() {
-    io.grpc.MethodDescriptor<grpc.MedicamentoOuterClass.MedicamentoDTO, grpc.MedicamentoOuterClass.ServerResponse> getDeleteTipoMedicamntoMethod;
-    if ((getDeleteTipoMedicamntoMethod = MedicamentoGrpc.getDeleteTipoMedicamntoMethod) == null) {
+      grpc.MedicamentoOuterClass.ServerResponse> getDeleteMedicamntoMethod() {
+    io.grpc.MethodDescriptor<grpc.MedicamentoOuterClass.MedicamentoDTO, grpc.MedicamentoOuterClass.ServerResponse> getDeleteMedicamntoMethod;
+    if ((getDeleteMedicamntoMethod = MedicamentoGrpc.getDeleteMedicamntoMethod) == null) {
       synchronized (MedicamentoGrpc.class) {
-        if ((getDeleteTipoMedicamntoMethod = MedicamentoGrpc.getDeleteTipoMedicamntoMethod) == null) {
-          MedicamentoGrpc.getDeleteTipoMedicamntoMethod = getDeleteTipoMedicamntoMethod = 
+        if ((getDeleteMedicamntoMethod = MedicamentoGrpc.getDeleteMedicamntoMethod) == null) {
+          MedicamentoGrpc.getDeleteMedicamntoMethod = getDeleteMedicamntoMethod = 
               io.grpc.MethodDescriptor.<grpc.MedicamentoOuterClass.MedicamentoDTO, grpc.MedicamentoOuterClass.ServerResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "Medicamento", "deleteTipoMedicamnto"))
+                  "Medicamento", "deleteMedicamnto"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   grpc.MedicamentoOuterClass.MedicamentoDTO.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   grpc.MedicamentoOuterClass.ServerResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new MedicamentoMethodDescriptorSupplier("deleteTipoMedicamnto"))
+                  .setSchemaDescriptor(new MedicamentoMethodDescriptorSupplier("deleteMedicamnto"))
                   .build();
           }
         }
      }
-     return getDeleteTipoMedicamntoMethod;
+     return getDeleteMedicamntoMethod;
   }
 
   /**
@@ -230,23 +230,23 @@ public final class MedicamentoGrpc {
 
     /**
      */
-    public void getByNameTipoMedicamento(grpc.MedicamentoOuterClass.GetByNombreRequest request,
-        io.grpc.stub.StreamObserver<grpc.MedicamentoOuterClass.MedicamentoResDTO> responseObserver) {
-      asyncUnimplementedUnaryCall(getGetByNameTipoMedicamentoMethod(), responseObserver);
+    public void getByTipoMedicamento(grpc.MedicamentoOuterClass.GetByNombreRequest request,
+        io.grpc.stub.StreamObserver<grpc.MedicamentoOuterClass.ListMedicamentoDTO> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetByTipoMedicamentoMethod(), responseObserver);
     }
 
     /**
      */
-    public void addTipoMedicamento(grpc.MedicamentoOuterClass.MedicamentoDTO request,
+    public void addMedicamento(grpc.MedicamentoOuterClass.MedicamentoDTO request,
         io.grpc.stub.StreamObserver<grpc.MedicamentoOuterClass.ServerResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getAddTipoMedicamentoMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getAddMedicamentoMethod(), responseObserver);
     }
 
     /**
      */
-    public void deleteTipoMedicamnto(grpc.MedicamentoOuterClass.MedicamentoDTO request,
+    public void deleteMedicamnto(grpc.MedicamentoOuterClass.MedicamentoDTO request,
         io.grpc.stub.StreamObserver<grpc.MedicamentoOuterClass.ServerResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getDeleteTipoMedicamntoMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getDeleteMedicamntoMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -266,26 +266,26 @@ public final class MedicamentoGrpc {
                 grpc.MedicamentoOuterClass.ListMedicamentoDTO>(
                   this, METHODID_GET_MEDICAMENTOS_BY_LETRA)))
           .addMethod(
-            getGetByNameTipoMedicamentoMethod(),
+            getGetByTipoMedicamentoMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 grpc.MedicamentoOuterClass.GetByNombreRequest,
-                grpc.MedicamentoOuterClass.MedicamentoResDTO>(
-                  this, METHODID_GET_BY_NAME_TIPO_MEDICAMENTO)))
+                grpc.MedicamentoOuterClass.ListMedicamentoDTO>(
+                  this, METHODID_GET_BY_TIPO_MEDICAMENTO)))
           .addMethod(
-            getAddTipoMedicamentoMethod(),
+            getAddMedicamentoMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 grpc.MedicamentoOuterClass.MedicamentoDTO,
                 grpc.MedicamentoOuterClass.ServerResponse>(
-                  this, METHODID_ADD_TIPO_MEDICAMENTO)))
+                  this, METHODID_ADD_MEDICAMENTO)))
           .addMethod(
-            getDeleteTipoMedicamntoMethod(),
+            getDeleteMedicamntoMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 grpc.MedicamentoOuterClass.MedicamentoDTO,
                 grpc.MedicamentoOuterClass.ServerResponse>(
-                  this, METHODID_DELETE_TIPO_MEDICAMNTO)))
+                  this, METHODID_DELETE_MEDICAMNTO)))
           .build();
     }
   }
@@ -326,26 +326,26 @@ public final class MedicamentoGrpc {
 
     /**
      */
-    public void getByNameTipoMedicamento(grpc.MedicamentoOuterClass.GetByNombreRequest request,
-        io.grpc.stub.StreamObserver<grpc.MedicamentoOuterClass.MedicamentoResDTO> responseObserver) {
+    public void getByTipoMedicamento(grpc.MedicamentoOuterClass.GetByNombreRequest request,
+        io.grpc.stub.StreamObserver<grpc.MedicamentoOuterClass.ListMedicamentoDTO> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getGetByNameTipoMedicamentoMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getGetByTipoMedicamentoMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void addTipoMedicamento(grpc.MedicamentoOuterClass.MedicamentoDTO request,
+    public void addMedicamento(grpc.MedicamentoOuterClass.MedicamentoDTO request,
         io.grpc.stub.StreamObserver<grpc.MedicamentoOuterClass.ServerResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getAddTipoMedicamentoMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getAddMedicamentoMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void deleteTipoMedicamnto(grpc.MedicamentoOuterClass.MedicamentoDTO request,
+    public void deleteMedicamnto(grpc.MedicamentoOuterClass.MedicamentoDTO request,
         io.grpc.stub.StreamObserver<grpc.MedicamentoOuterClass.ServerResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getDeleteTipoMedicamntoMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getDeleteMedicamntoMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -383,23 +383,23 @@ public final class MedicamentoGrpc {
 
     /**
      */
-    public grpc.MedicamentoOuterClass.MedicamentoResDTO getByNameTipoMedicamento(grpc.MedicamentoOuterClass.GetByNombreRequest request) {
+    public grpc.MedicamentoOuterClass.ListMedicamentoDTO getByTipoMedicamento(grpc.MedicamentoOuterClass.GetByNombreRequest request) {
       return blockingUnaryCall(
-          getChannel(), getGetByNameTipoMedicamentoMethod(), getCallOptions(), request);
+          getChannel(), getGetByTipoMedicamentoMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public grpc.MedicamentoOuterClass.ServerResponse addTipoMedicamento(grpc.MedicamentoOuterClass.MedicamentoDTO request) {
+    public grpc.MedicamentoOuterClass.ServerResponse addMedicamento(grpc.MedicamentoOuterClass.MedicamentoDTO request) {
       return blockingUnaryCall(
-          getChannel(), getAddTipoMedicamentoMethod(), getCallOptions(), request);
+          getChannel(), getAddMedicamentoMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public grpc.MedicamentoOuterClass.ServerResponse deleteTipoMedicamnto(grpc.MedicamentoOuterClass.MedicamentoDTO request) {
+    public grpc.MedicamentoOuterClass.ServerResponse deleteMedicamnto(grpc.MedicamentoOuterClass.MedicamentoDTO request) {
       return blockingUnaryCall(
-          getChannel(), getDeleteTipoMedicamntoMethod(), getCallOptions(), request);
+          getChannel(), getDeleteMedicamntoMethod(), getCallOptions(), request);
     }
   }
 
@@ -439,34 +439,34 @@ public final class MedicamentoGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<grpc.MedicamentoOuterClass.MedicamentoResDTO> getByNameTipoMedicamento(
+    public com.google.common.util.concurrent.ListenableFuture<grpc.MedicamentoOuterClass.ListMedicamentoDTO> getByTipoMedicamento(
         grpc.MedicamentoOuterClass.GetByNombreRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getGetByNameTipoMedicamentoMethod(), getCallOptions()), request);
+          getChannel().newCall(getGetByTipoMedicamentoMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<grpc.MedicamentoOuterClass.ServerResponse> addTipoMedicamento(
+    public com.google.common.util.concurrent.ListenableFuture<grpc.MedicamentoOuterClass.ServerResponse> addMedicamento(
         grpc.MedicamentoOuterClass.MedicamentoDTO request) {
       return futureUnaryCall(
-          getChannel().newCall(getAddTipoMedicamentoMethod(), getCallOptions()), request);
+          getChannel().newCall(getAddMedicamentoMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<grpc.MedicamentoOuterClass.ServerResponse> deleteTipoMedicamnto(
+    public com.google.common.util.concurrent.ListenableFuture<grpc.MedicamentoOuterClass.ServerResponse> deleteMedicamnto(
         grpc.MedicamentoOuterClass.MedicamentoDTO request) {
       return futureUnaryCall(
-          getChannel().newCall(getDeleteTipoMedicamntoMethod(), getCallOptions()), request);
+          getChannel().newCall(getDeleteMedicamntoMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_GET_ALL_MEDICAMENTO = 0;
   private static final int METHODID_GET_MEDICAMENTOS_BY_LETRA = 1;
-  private static final int METHODID_GET_BY_NAME_TIPO_MEDICAMENTO = 2;
-  private static final int METHODID_ADD_TIPO_MEDICAMENTO = 3;
-  private static final int METHODID_DELETE_TIPO_MEDICAMNTO = 4;
+  private static final int METHODID_GET_BY_TIPO_MEDICAMENTO = 2;
+  private static final int METHODID_ADD_MEDICAMENTO = 3;
+  private static final int METHODID_DELETE_MEDICAMNTO = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -493,16 +493,16 @@ public final class MedicamentoGrpc {
           serviceImpl.getMedicamentosByLetra((grpc.MedicamentoOuterClass.GetByNombreRequest) request,
               (io.grpc.stub.StreamObserver<grpc.MedicamentoOuterClass.ListMedicamentoDTO>) responseObserver);
           break;
-        case METHODID_GET_BY_NAME_TIPO_MEDICAMENTO:
-          serviceImpl.getByNameTipoMedicamento((grpc.MedicamentoOuterClass.GetByNombreRequest) request,
-              (io.grpc.stub.StreamObserver<grpc.MedicamentoOuterClass.MedicamentoResDTO>) responseObserver);
+        case METHODID_GET_BY_TIPO_MEDICAMENTO:
+          serviceImpl.getByTipoMedicamento((grpc.MedicamentoOuterClass.GetByNombreRequest) request,
+              (io.grpc.stub.StreamObserver<grpc.MedicamentoOuterClass.ListMedicamentoDTO>) responseObserver);
           break;
-        case METHODID_ADD_TIPO_MEDICAMENTO:
-          serviceImpl.addTipoMedicamento((grpc.MedicamentoOuterClass.MedicamentoDTO) request,
+        case METHODID_ADD_MEDICAMENTO:
+          serviceImpl.addMedicamento((grpc.MedicamentoOuterClass.MedicamentoDTO) request,
               (io.grpc.stub.StreamObserver<grpc.MedicamentoOuterClass.ServerResponse>) responseObserver);
           break;
-        case METHODID_DELETE_TIPO_MEDICAMNTO:
-          serviceImpl.deleteTipoMedicamnto((grpc.MedicamentoOuterClass.MedicamentoDTO) request,
+        case METHODID_DELETE_MEDICAMNTO:
+          serviceImpl.deleteMedicamnto((grpc.MedicamentoOuterClass.MedicamentoDTO) request,
               (io.grpc.stub.StreamObserver<grpc.MedicamentoOuterClass.ServerResponse>) responseObserver);
           break;
         default:
@@ -568,9 +568,9 @@ public final class MedicamentoGrpc {
               .setSchemaDescriptor(new MedicamentoFileDescriptorSupplier())
               .addMethod(getGetAllMedicamentoMethod())
               .addMethod(getGetMedicamentosByLetraMethod())
-              .addMethod(getGetByNameTipoMedicamentoMethod())
-              .addMethod(getAddTipoMedicamentoMethod())
-              .addMethod(getDeleteTipoMedicamntoMethod())
+              .addMethod(getGetByTipoMedicamentoMethod())
+              .addMethod(getAddMedicamentoMethod())
+              .addMethod(getDeleteMedicamntoMethod())
               .build();
         }
       }
