@@ -8,7 +8,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import model.TipoMedicamento;
-import model.User;
 
 public class TipoMedicamentoDAO {
 	private static TipoMedicamentoDAO instancia;
@@ -20,7 +19,7 @@ public class TipoMedicamentoDAO {
 		return instancia;
 	}
 
-	public List<TipoMedicamento> getAllTipoMedicamento(){
+	public List<TipoMedicamento> getAllTipoMedicamento() throws Exception{
 		List<TipoMedicamento> tipos = new ArrayList<TipoMedicamento>();
 
 		EntityManager em = JPAUtil.getEMF().createEntityManager();
@@ -30,15 +29,38 @@ public class TipoMedicamentoDAO {
 		try {
 			tipos = tq.getResultList();
 		} catch (Exception e) {
-			e.printStackTrace();
+			String msg = "Error de persistencia - Método GetAllTipoMedicamento: " + e.getMessage();
+			System.out.println(msg);
+			throw new Exception(msg);
 		} finally {
 			em.close();
 		}
 
 		return tipos;
 	}
+	
+	public List<TipoMedicamento> getAllTipoMedicamentoActivo() throws Exception{
+		List<TipoMedicamento> tipos = new ArrayList<TipoMedicamento>();
+		
+		EntityManager em = JPAUtil.getEMF().createEntityManager();
+		
+		String query = "SELECT tp FROM TipoMedicamento tp WHERE tp.activo = :activo";
+		TypedQuery<TipoMedicamento> tq = em.createQuery(query, TipoMedicamento.class);
+		tq.setParameter("activo", true);
+		try {
+			tipos = tq.getResultList();
+		} catch (Exception e) {
+			String msg = "Error de persistencia - Método GetAllTipoMedicamento: " + e.getMessage();
+			System.out.println(msg);
+			throw new Exception(msg);
+		} finally {
+			em.close();
+		}
+		
+		return tipos;
+	}
 
-	public TipoMedicamento getByNombreTipoMedicamento(String nombreTipo){
+	public TipoMedicamento getByNombreTipoMedicamento(String nombreTipo) throws Exception{
 		TipoMedicamento tipo = null;
 
 		EntityManager em = JPAUtil.getEMF().createEntityManager();
@@ -49,7 +71,9 @@ public class TipoMedicamentoDAO {
 		try {
 			tipo = tq.getSingleResult();
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			String msg = "Error de persistencia - Método GetByNombreTipoMedicamento: " + e.getMessage();
+			System.out.println(msg);
+			throw new Exception(msg);
 		} finally {
 			em.close();
 		}
@@ -57,7 +81,7 @@ public class TipoMedicamentoDAO {
 		return tipo;
 	}
 
-	public boolean addTipoMedicamento(String nombre) {
+	public boolean addTipoMedicamento(String nombre) throws Exception {
 
 		boolean retorno = false;
 		EntityManager em = JPAUtil.getEMF().createEntityManager();
@@ -76,22 +100,30 @@ public class TipoMedicamentoDAO {
 			em.persist(tipo);
 			et.commit();
 			retorno = true;
-		} catch (Exception ex) {
+		} catch (Exception e) {
 			if (et != null) {
 				et.rollback();
 			}
-			ex.printStackTrace();
+			String msg = "Error de persistencia - Método addTipoMedicamento: " + e.getMessage();
+			System.out.println(msg);
+			throw new Exception(msg);
 		} finally {
 			em.close();
 		}
 		return retorno;
 	}
 	
-	public void deleteTipoMedicamento (String nombre) {
-		modificarActivo(nombre, false);
+	public void deleteTipoMedicamento (String nombre) throws Exception {
+		try {
+			modificarActivo(nombre, false);
+		} catch (Exception e) {
+			String msg = "Error de persistencia - Método deleteMedicamento ";
+			System.out.println(msg);
+			throw new Exception(msg);
+		}
 	}
 	
-	public void modificarActivo (String nombre, boolean activo) {
+	public void modificarActivo (String nombre, boolean activo) throws Exception {
 		EntityManager em = JPAUtil.getEMF().createEntityManager();
         EntityTransaction et = null;
         
@@ -106,11 +138,13 @@ public class TipoMedicamentoDAO {
  
             em.persist(tipo);
             et.commit();
-        } catch (Exception ex) {
+        } catch (Exception e) {
             if (et != null) {
                 et.rollback();
             }
-            ex.printStackTrace();
+			String msg = "Error de persistencia - Método modificarActivo: " + e.getMessage();
+			System.out.println(msg);
+			throw new Exception(msg);
         } finally {
             em.close();
         }

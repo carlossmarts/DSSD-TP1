@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_package = "grpc";
+
+
+//requests
+message Empty{} 			//getAllReq
+
+message TipoMedicamentoDTO{	//addTipoReq, deleteTipoReq
+	string nombre = 1;
+	bool activo = 2;
+}
+
+
+message GetByNombreRequest{	//getBynombreReq
+	string nombre = 1;
+}
+
+
+//responses
+message ServerResponse{		//addTipoRes, deleteTipoRes, exceptionRes
+	int32  code = 1;
+	string msg = 2;
+}
+
+message TipoMedicamentoResDTO{	 //getByNombreTipoRes
+	string nombre = 1;
+	bool activo = 2;
+	ServerResponse response = 3;
+}
+
+
+message ListTipoMedicamentoDTO{			//GetAllResponse
+	repeated TipoMedicamentoDTO tipos = 1;
+	ServerResponse response = 2;
+}
+
+service tipoMedicamento{
+	rpc getAllTipoMedicamento (Empty) returns (ListTipoMedicamentoDTO);
+	rpc getByNameTipoMedicamento (GetByNombreRequest) returns (TipoMedicamentoResDTO);
+	rpc addTipoMedicamento (TipoMedicamentoDTO) returns (ServerResponse);
+	rpc deleteTipoMedicamnto (TipoMedicamentoDTO) returns (ServerResponse);
+}
