@@ -152,6 +152,7 @@
             let label = document.createTextNode(element[property] ? "ACTIVO" : "INACTIVO");
             btn.appendChild(label);
             btn.style.width = "100px";
+            btn.dataset = label;
             child.appendChild(btn);
         } else {
             child.appendChild(document.createTextNode(element[property]));
