@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FarmaUNLa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+        crossorigin="anonymous">
+</head>
+<style>
+    .btn-login {
+        border-radius: 3.2rem;
+        background-color: #a4a4a5;
+        border-color: #a4a4a5;
+    }
+
+    .bg-gray {
+        background-color: #a4a4a5 !important;
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+        color: #ffff!important;
+    }
+</style>
+
+<body class="d-flex flex-column m-0 h-100 ">
+    <header>
+        <nav class="navbar navbar-expand-sm  navbar-toggleable-sm navbar-light  bg-white ">
+            <div class="container">
+
+                <button class="navbar-toggler d-block d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#menu_general" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand logo mx-auto mx-md-0" href="/">
+                    <div class="h1">FarmaUNLa</div>
+                </a>
+                <div class="btn btn-sm btn-login">
+                    <a class="nav-link text-white" href="/Login">
+                        <span class="d-none d-md-block">INICIAR SESIÓN</span>
+                        <i class="fas fa-sign-in-alt d-block d-md-none"></i>
+                    </a>
+                </div>
+
+            </div>
+        </nav>
+        <nav id="menu" class="navbar navbar-expand-lg bg-gray border-bottom navbar-dark">
+            <div class="container-fluid">
+                <div class="container">
+                    <div id="menu_general" class="navbar-collapse collapse" style="font-size:1.2em;">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item pr-lg-2 pr-md-2">
+                                <div class="menu_item">
+                                    <a class="nav-link" href="index.html">
+                                        <i class="fas fa-home me-1"></i>Inicio
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown pr-lg-2 pr-md-2">
+
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-cog me-1"></i>Administración
+                                </a>
+                                <div class="dropdown-menu p-3">
+                                    <span class="dropdown-menu-arrow dropdown"></span>
+                                    <a class="dropdown-item" href="#" target="'_blank'">Tipos de Medicamentos</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="administracion/medicamentos.html">Medicamentos </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+</body>
+
+</html>
