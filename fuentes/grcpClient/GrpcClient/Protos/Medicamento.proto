@@ -1,0 +1,73 @@
+﻿syntax = "proto3";
+
+option java_package = "grpc";
+
+//requests
+message Empty{} 			//getAllReq
+
+message MedicamentoDTO{		//add req, delete req
+	int32 id = 1;
+	string cod_medicamento = 2;
+	string nombre = 3;
+	string droga = 4;
+	string tipo = 5;
+}
+
+message GetByNombreRequest{ //getByNombre, getByLetra
+	string nombre = 1;
+}
+
+
+//responses
+//Objeto anidado
+message TipoMedicamentoDTO{
+	string nombre = 1;
+	bool activo = 2;
+}
+
+message ServerResponse{		//addTipoRes, deleteTipoRes, exceptionRes
+	int32  code = 1;
+	string msg = 2;
+}
+
+message MedicamentoResDTO{	 //getByNombreTipoRes
+	int32 id = 1;
+	string cod_medicamento = 2;
+	string nombre = 3;
+	string droga = 4;
+	string tipo = 5;
+	ServerResponse response = 6;
+}
+
+
+message ListMedicamentoDTO{			//GetAllResponse, getByLetraResponse
+	repeated MedicamentoDTO medicamentos = 1;
+	ServerResponse response = 2;
+}
+
+service Medicamento{
+	rpc getAllMedicamento (Empty) returns (ListMedicamentoDTO);
+	rpc getMedicamentosByLetra (GetByNombreRequest) returns (ListMedicamentoDTO);
+	rpc getByTipoMedicamento (GetByNombreRequest) returns (ListMedicamentoDTO);
+	rpc addMedicamento (MedicamentoDTO) returns (ServerResponse);
+	rpc deleteMedicamnto (MedicamentoDTO) returns (ServerResponse);
+}
+
+service tipoMedicamento{
+	rpc getAllTipoMedicamento (Empty) returns (ListTipoMedicamentoDTO);
+	rpc getByNameTipoMedicamento (GetByNombreRequest) returns (TipoMedicamentoResDTO);
+	rpc addTipoMedicamento (TipoMedicamentoDTO) returns (ServerResponse);
+	rpc deleteTipoMedicamnto (TipoMedicamentoDTO) returns (ServerResponse);
+}
+
+message TipoMedicamentoResDTO{	 //getByNombreTipoRes
+	string nombre = 1;
+	bool activo = 2;
+	ServerResponse response = 3;
+}
+
+
+message ListTipoMedicamentoDTO{			//GetAllResponse
+	repeated TipoMedicamentoDTO tipos = 1;
+	ServerResponse response = 2;
+}
