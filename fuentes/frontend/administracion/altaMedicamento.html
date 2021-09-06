@@ -69,8 +69,7 @@
                                 </a>
                                 <div class="dropdown-menu p-3">
                                     <span class="dropdown-menu-arrow dropdown"></span>
-                                    <a class="dropdown-item" href="https://catalogo.laboratoriolaca.com/" target="'_blank'">Tipos de Medicamentos</a>
-                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="tiposMedicamentos.html" target="'_blank'">Tipos de Medicamentos</a>                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="medicamentos.html">Medicamentos </a>
                                 </div>
                             </li>
@@ -87,22 +86,22 @@
                 <div class="row">
                     <div class="col-12 col-md-6 mb-3">
                         <label for="codigo" class="form-label">Codigo Numerico</label>
-                        <input type="number" class="form-control" id="codigo" placeholder="12345">
+                        <input type="number" class="form-control" id="codigo" placeholder="12345" required>
                     </div>
                     <div class="col-12 col-md-6 mb-3">
                         <label for="nombre" class="form-label">Nombre comercial</label>
-                        <input type="text" class="form-control" id="nombre" placeholder="Amoxol">
+                        <input type="text" class="form-control" id="nombre" placeholder="Amoxol" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-6 mb-3">
                         <label for="droga" class="form-label">Nombre farmacologico</label>
-                        <input type="text" class="form-control" id="droga" placeholder="Amoxicilina" aria-describedby="drogades">
+                        <input type="text" class="form-control" id="droga" placeholder="Amoxicilina" aria-describedby="drogades" required>
                         <div id="drogades" class="form-text">Nombre para describir qué droga es</div>
                     </div>
                     <div class="col-12 col-md-6 mb-3">
                         <label for="tipo" class="form-label">Tipo de medicamento</label>
-                        <select id="tipo" class="form-select">
+                        <select id="tipo" class="form-select" required>
                             <option value="aerosol">Aerosol</option>
                             <option value="crema">Crema</option>
                             <option value="colirio">Colirio</option>
