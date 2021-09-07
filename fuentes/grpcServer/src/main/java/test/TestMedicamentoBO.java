@@ -52,7 +52,7 @@ public class TestMedicamentoBO {
 		
 //		System.out.println("test addMedicamento");
 //		TipoMedicamento tm = tmBO.getByNombreTipoMedicamento("colirio");
-//		Medicamento m = new Medicamento(11111, "PAA-11111-5", "nombreMed", "alguna", true, tm);
+		//Medicamento m = new Medicamento(11111, "PAA-11111-5", "nombreMed", "alguna", true, tm);
 //		try {
 //			bo.addMedicamento(m);			
 //			System.out.println(bo.getByCodigoMedicamento("PAA-11111-5"));

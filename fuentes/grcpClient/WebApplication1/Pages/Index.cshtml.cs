@@ -25,11 +25,15 @@ namespace WebApplication1.Pages
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
             using var channel = GrpcChannel.ForAddress("http://localhost:9000");
             var med = new Medicamento.MedicamentoClient(channel);
-            var medd = new tipoMedicamento.tipoMedicamentoClient(channel);
+            var tipoMed = new tipoMedicamento.tipoMedicamentoClient(channel);
 
             var reply = await med.getAllMedicamentoAsync(new Empty { });
 
-            var reply2 = await medd.getAllTipoMedicamentoAsync(new Empty { });
+            var reply2 = await tipoMed.getAllTipoMedicamentoAsync(new Empty { });
+
+            var tm = tipoMed.getByNameTipoMedicamentoAsync(new GetByNombreRequest() { Nombre = "colirio" });
+
+            await med.addMedicamentoAsync(new MedicamentoDTO() { Id = 66666, CodMedicamento = "RSH-54321-7", Nombre = "nombreMed", Droga = "alguna", Tipo = "colirio" });
 
             this.Message1 = reply;
             this.Message2 = reply2;
