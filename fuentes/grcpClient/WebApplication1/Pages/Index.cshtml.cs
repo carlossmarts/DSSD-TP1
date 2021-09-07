@@ -12,7 +12,8 @@ namespace WebApplication1.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        public ListMedicamentoDTO Message { get; set; }
+        public ListMedicamentoDTO Message1 { get; set; }
+        public ListTipoMedicamentoDTO Message2 { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger)
         {
@@ -24,10 +25,14 @@ namespace WebApplication1.Pages
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
             using var channel = GrpcChannel.ForAddress("http://localhost:9000");
             var med = new Medicamento.MedicamentoClient(channel);
+            var medd = new tipoMedicamento.tipoMedicamentoClient(channel);
 
             var reply = await med.getAllMedicamentoAsync(new Empty { });
 
-            this.Message = reply;
+            var reply2 = await medd.getAllTipoMedicamentoAsync(new Empty { });
+
+            this.Message1 = reply;
+            this.Message2 = reply2;
         }
     }
 }

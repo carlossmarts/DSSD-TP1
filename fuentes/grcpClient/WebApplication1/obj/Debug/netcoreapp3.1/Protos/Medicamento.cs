@@ -33,14 +33,24 @@ public static partial class MedicamentoReflection {
           "KAkSDAoEdGlwbxgFIAEoCRIhCghyZXNwb25zZRgGIAEoCzIPLlNlcnZlclJl",
           "c3BvbnNlIl4KEkxpc3RNZWRpY2FtZW50b0RUTxIlCgxtZWRpY2FtZW50b3MY",
           "ASADKAsyDy5NZWRpY2FtZW50b0RUTxIhCghyZXNwb25zZRgCIAEoCzIPLlNl",
-          "cnZlclJlc3BvbnNlMq8CCgtNZWRpY2FtZW50bxIwChFnZXRBbGxNZWRpY2Ft",
-          "ZW50bxIGLkVtcHR5GhMuTGlzdE1lZGljYW1lbnRvRFRPEkIKFmdldE1lZGlj",
-          "YW1lbnRvc0J5TGV0cmESEy5HZXRCeU5vbWJyZVJlcXVlc3QaEy5MaXN0TWVk",
-          "aWNhbWVudG9EVE8SQAoUZ2V0QnlUaXBvTWVkaWNhbWVudG8SEy5HZXRCeU5v",
-          "bWJyZVJlcXVlc3QaEy5MaXN0TWVkaWNhbWVudG9EVE8SMgoOYWRkTWVkaWNh",
-          "bWVudG8SDy5NZWRpY2FtZW50b0RUTxoPLlNlcnZlclJlc3BvbnNlEjQKEGRl",
-          "bGV0ZU1lZGljYW1udG8SDy5NZWRpY2FtZW50b0RUTxoPLlNlcnZlclJlc3Bv",
-          "bnNlQgYKBGdycGNiBnByb3RvMw=="));
+          "cnZlclJlc3BvbnNlIloKFVRpcG9NZWRpY2FtZW50b1Jlc0RUTxIOCgZub21i",
+          "cmUYASABKAkSDgoGYWN0aXZvGAIgASgIEiEKCHJlc3BvbnNlGAMgASgLMg8u",
+          "U2VydmVyUmVzcG9uc2UiXwoWTGlzdFRpcG9NZWRpY2FtZW50b0RUTxIiCgV0",
+          "aXBvcxgBIAMoCzITLlRpcG9NZWRpY2FtZW50b0RUTxIhCghyZXNwb25zZRgC",
+          "IAEoCzIPLlNlcnZlclJlc3BvbnNlMq8CCgtNZWRpY2FtZW50bxIwChFnZXRB",
+          "bGxNZWRpY2FtZW50bxIGLkVtcHR5GhMuTGlzdE1lZGljYW1lbnRvRFRPEkIK",
+          "FmdldE1lZGljYW1lbnRvc0J5TGV0cmESEy5HZXRCeU5vbWJyZVJlcXVlc3Qa",
+          "Ey5MaXN0TWVkaWNhbWVudG9EVE8SQAoUZ2V0QnlUaXBvTWVkaWNhbWVudG8S",
+          "Ey5HZXRCeU5vbWJyZVJlcXVlc3QaEy5MaXN0TWVkaWNhbWVudG9EVE8SMgoO",
+          "YWRkTWVkaWNhbWVudG8SDy5NZWRpY2FtZW50b0RUTxoPLlNlcnZlclJlc3Bv",
+          "bnNlEjQKEGRlbGV0ZU1lZGljYW1udG8SDy5NZWRpY2FtZW50b0RUTxoPLlNl",
+          "cnZlclJlc3BvbnNlMo4CCg90aXBvTWVkaWNhbWVudG8SOAoVZ2V0QWxsVGlw",
+          "b01lZGljYW1lbnRvEgYuRW1wdHkaFy5MaXN0VGlwb01lZGljYW1lbnRvRFRP",
+          "EkcKGGdldEJ5TmFtZVRpcG9NZWRpY2FtZW50bxITLkdldEJ5Tm9tYnJlUmVx",
+          "dWVzdBoWLlRpcG9NZWRpY2FtZW50b1Jlc0RUTxI6ChJhZGRUaXBvTWVkaWNh",
+          "bWVudG8SEy5UaXBvTWVkaWNhbWVudG9EVE8aDy5TZXJ2ZXJSZXNwb25zZRI8",
+          "ChRkZWxldGVUaXBvTWVkaWNhbW50bxITLlRpcG9NZWRpY2FtZW50b0RUTxoP",
+          "LlNlcnZlclJlc3BvbnNlQgYKBGdycGNiBnByb3RvMw=="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -50,7 +60,9 @@ public static partial class MedicamentoReflection {
           new pbr::GeneratedClrTypeInfo(typeof(global::TipoMedicamentoDTO), global::TipoMedicamentoDTO.Parser, new[]{ "Nombre", "Activo" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ServerResponse), global::ServerResponse.Parser, new[]{ "Code", "Msg" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::MedicamentoResDTO), global::MedicamentoResDTO.Parser, new[]{ "Id", "CodMedicamento", "Nombre", "Droga", "Tipo", "Response" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::ListMedicamentoDTO), global::ListMedicamentoDTO.Parser, new[]{ "Medicamentos", "Response" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::ListMedicamentoDTO), global::ListMedicamentoDTO.Parser, new[]{ "Medicamentos", "Response" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::TipoMedicamentoResDTO), global::TipoMedicamentoResDTO.Parser, new[]{ "Nombre", "Activo", "Response" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::ListTipoMedicamentoDTO), global::ListTipoMedicamentoDTO.Parser, new[]{ "Tipos", "Response" }, null, null, null, null)
         }));
   }
   #endregion
@@ -1670,6 +1682,471 @@ public sealed partial class ListMedicamentoDTO : pb::IMessage<ListMedicamentoDTO
           break;
         case 10: {
           medicamentos_.AddEntriesFrom(ref input, _repeated_medicamentos_codec);
+          break;
+        }
+        case 18: {
+          if (response_ == null) {
+            Response = new global::ServerResponse();
+          }
+          input.ReadMessage(Response);
+          break;
+        }
+      }
+    }
+  }
+  #endif
+
+}
+
+/// <summary>
+///getByNombreTipoRes
+/// </summary>
+public sealed partial class TipoMedicamentoResDTO : pb::IMessage<TipoMedicamentoResDTO>
+#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    , pb::IBufferMessage
+#endif
+{
+  private static readonly pb::MessageParser<TipoMedicamentoResDTO> _parser = new pb::MessageParser<TipoMedicamentoResDTO>(() => new TipoMedicamentoResDTO());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<TipoMedicamentoResDTO> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::MedicamentoReflection.Descriptor.MessageTypes[7]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public TipoMedicamentoResDTO() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public TipoMedicamentoResDTO(TipoMedicamentoResDTO other) : this() {
+    nombre_ = other.nombre_;
+    activo_ = other.activo_;
+    response_ = other.response_ != null ? other.response_.Clone() : null;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public TipoMedicamentoResDTO Clone() {
+    return new TipoMedicamentoResDTO(this);
+  }
+
+  /// <summary>Field number for the "nombre" field.</summary>
+  public const int NombreFieldNumber = 1;
+  private string nombre_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string Nombre {
+    get { return nombre_; }
+    set {
+      nombre_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  /// <summary>Field number for the "activo" field.</summary>
+  public const int ActivoFieldNumber = 2;
+  private bool activo_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Activo {
+    get { return activo_; }
+    set {
+      activo_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "response" field.</summary>
+  public const int ResponseFieldNumber = 3;
+  private global::ServerResponse response_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public global::ServerResponse Response {
+    get { return response_; }
+    set {
+      response_ = value;
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as TipoMedicamentoResDTO);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(TipoMedicamentoResDTO other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (Nombre != other.Nombre) return false;
+    if (Activo != other.Activo) return false;
+    if (!object.Equals(Response, other.Response)) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (Nombre.Length != 0) hash ^= Nombre.GetHashCode();
+    if (Activo != false) hash ^= Activo.GetHashCode();
+    if (response_ != null) hash ^= Response.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    output.WriteRawMessage(this);
+  #else
+    if (Nombre.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(Nombre);
+    }
+    if (Activo != false) {
+      output.WriteRawTag(16);
+      output.WriteBool(Activo);
+    }
+    if (response_ != null) {
+      output.WriteRawTag(26);
+      output.WriteMessage(Response);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    if (Nombre.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(Nombre);
+    }
+    if (Activo != false) {
+      output.WriteRawTag(16);
+      output.WriteBool(Activo);
+    }
+    if (response_ != null) {
+      output.WriteRawTag(26);
+      output.WriteMessage(Response);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(ref output);
+    }
+  }
+  #endif
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (Nombre.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Nombre);
+    }
+    if (Activo != false) {
+      size += 1 + 1;
+    }
+    if (response_ != null) {
+      size += 1 + pb::CodedOutputStream.ComputeMessageSize(Response);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(TipoMedicamentoResDTO other) {
+    if (other == null) {
+      return;
+    }
+    if (other.Nombre.Length != 0) {
+      Nombre = other.Nombre;
+    }
+    if (other.Activo != false) {
+      Activo = other.Activo;
+    }
+    if (other.response_ != null) {
+      if (response_ == null) {
+        Response = new global::ServerResponse();
+      }
+      Response.MergeFrom(other.Response);
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    input.ReadRawMessage(this);
+  #else
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 10: {
+          Nombre = input.ReadString();
+          break;
+        }
+        case 16: {
+          Activo = input.ReadBool();
+          break;
+        }
+        case 26: {
+          if (response_ == null) {
+            Response = new global::ServerResponse();
+          }
+          input.ReadMessage(Response);
+          break;
+        }
+      }
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+          break;
+        case 10: {
+          Nombre = input.ReadString();
+          break;
+        }
+        case 16: {
+          Activo = input.ReadBool();
+          break;
+        }
+        case 26: {
+          if (response_ == null) {
+            Response = new global::ServerResponse();
+          }
+          input.ReadMessage(Response);
+          break;
+        }
+      }
+    }
+  }
+  #endif
+
+}
+
+/// <summary>
+///GetAllResponse
+/// </summary>
+public sealed partial class ListTipoMedicamentoDTO : pb::IMessage<ListTipoMedicamentoDTO>
+#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    , pb::IBufferMessage
+#endif
+{
+  private static readonly pb::MessageParser<ListTipoMedicamentoDTO> _parser = new pb::MessageParser<ListTipoMedicamentoDTO>(() => new ListTipoMedicamentoDTO());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<ListTipoMedicamentoDTO> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::MedicamentoReflection.Descriptor.MessageTypes[8]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ListTipoMedicamentoDTO() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ListTipoMedicamentoDTO(ListTipoMedicamentoDTO other) : this() {
+    tipos_ = other.tipos_.Clone();
+    response_ = other.response_ != null ? other.response_.Clone() : null;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ListTipoMedicamentoDTO Clone() {
+    return new ListTipoMedicamentoDTO(this);
+  }
+
+  /// <summary>Field number for the "tipos" field.</summary>
+  public const int TiposFieldNumber = 1;
+  private static readonly pb::FieldCodec<global::TipoMedicamentoDTO> _repeated_tipos_codec
+      = pb::FieldCodec.ForMessage(10, global::TipoMedicamentoDTO.Parser);
+  private readonly pbc::RepeatedField<global::TipoMedicamentoDTO> tipos_ = new pbc::RepeatedField<global::TipoMedicamentoDTO>();
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pbc::RepeatedField<global::TipoMedicamentoDTO> Tipos {
+    get { return tipos_; }
+  }
+
+  /// <summary>Field number for the "response" field.</summary>
+  public const int ResponseFieldNumber = 2;
+  private global::ServerResponse response_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public global::ServerResponse Response {
+    get { return response_; }
+    set {
+      response_ = value;
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as ListTipoMedicamentoDTO);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(ListTipoMedicamentoDTO other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if(!tipos_.Equals(other.tipos_)) return false;
+    if (!object.Equals(Response, other.Response)) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    hash ^= tipos_.GetHashCode();
+    if (response_ != null) hash ^= Response.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    output.WriteRawMessage(this);
+  #else
+    tipos_.WriteTo(output, _repeated_tipos_codec);
+    if (response_ != null) {
+      output.WriteRawTag(18);
+      output.WriteMessage(Response);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    tipos_.WriteTo(ref output, _repeated_tipos_codec);
+    if (response_ != null) {
+      output.WriteRawTag(18);
+      output.WriteMessage(Response);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(ref output);
+    }
+  }
+  #endif
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    size += tipos_.CalculateSize(_repeated_tipos_codec);
+    if (response_ != null) {
+      size += 1 + pb::CodedOutputStream.ComputeMessageSize(Response);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(ListTipoMedicamentoDTO other) {
+    if (other == null) {
+      return;
+    }
+    tipos_.Add(other.tipos_);
+    if (other.response_ != null) {
+      if (response_ == null) {
+        Response = new global::ServerResponse();
+      }
+      Response.MergeFrom(other.Response);
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    input.ReadRawMessage(this);
+  #else
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 10: {
+          tipos_.AddEntriesFrom(input, _repeated_tipos_codec);
+          break;
+        }
+        case 18: {
+          if (response_ == null) {
+            Response = new global::ServerResponse();
+          }
+          input.ReadMessage(Response);
+          break;
+        }
+      }
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+          break;
+        case 10: {
+          tipos_.AddEntriesFrom(ref input, _repeated_tipos_codec);
           break;
         }
         case 18: {
