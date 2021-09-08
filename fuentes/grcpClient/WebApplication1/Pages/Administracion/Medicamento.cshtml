@@ -1,0 +1,54 @@
+﻿@page
+@model WebApplication1.Pages.Administracion.MedicamentoModel
+@{
+
+}
+
+<main role="main" class=" ">
+    <div class="container my-4">
+        <div class="row">
+            <div class="col mb-4">
+                <a href="AltaMedicamento" class="btn btn-success">
+                    <i class="fas fa-plus-circle me-1"></i>Nuevo
+                </a>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Droga</th>
+                    <th scope="col">Tipo</th>
+                </tr>
+            </thead>
+            <tbody id="medicamentos">
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<script>
+
+    let resp = @Html.Raw(Json.Serialize(@Model.ListMedicamento));
+
+    let tableMedicamentos = document.getElementById("medicamentos")
+    resp.medicamentos.forEach(medicamento => {
+        let tr = document.createElement("tr");
+        addElement(medicamento, 'id', tr, true)
+        addElement(medicamento, 'codMedicamento', tr, false)
+        addElement(medicamento, 'nombre', tr, false)
+        addElement(medicamento, 'droga', tr, false)
+        addElement(medicamento, 'tipo', tr, false)
+        tableMedicamentos.appendChild(tr);
+    });
+
+    function addElement(element, property, parent, isTh) {
+        let child = document.createElement(isTh ? 'th' : 'td');
+        if (isTh) child.scope = "row"
+        child.appendChild(document.createTextNode(element[property]));
+        parent.appendChild(child);
+    }
+
+</script>
