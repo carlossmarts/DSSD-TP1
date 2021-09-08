@@ -82,9 +82,9 @@ public class TipoMedicamentoBO {
 		return retorno;
 	}
 
-	public void deleteTipoMedicamento (String nombre) throws Exception {
+	public void deleteTipoMedicamento (String nombre, boolean activo) throws Exception {
 		try {
-			TipoMedicamentoDAO.getInstance().deleteTipoMedicamento(nombre);
+			TipoMedicamentoDAO.getInstance().deleteTipoMedicamento(nombre,activo);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			throw new Exception("Error: No se pudo borrar tipo de medicamentos");

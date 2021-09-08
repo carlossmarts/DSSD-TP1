@@ -26,8 +26,8 @@ public class TipoMedicamentoService extends tipoMedicamentoImplBase{
 
 		List<TipoMedicamento> tipos = new ArrayList<TipoMedicamento>();
 		try {
-//			tipos = TipoMedicamentoBO.getInstance().getAllTipoMedicamento();		//este va para testing
-			tipos = TipoMedicamentoBO.getInstance().getAllTipoMedicamentoActivo(); //este va para cuando se llama desde el frontend
+			tipos = TipoMedicamentoBO.getInstance().getAllTipoMedicamento();		//este va para testing
+			//tipos = TipoMedicamentoBO.getInstance().getAllTipoMedicamentoActivo(); //este va para cuando se llama desde el frontend
 		} catch (Exception e) {
 			serverResponse.setCode(500);
 			serverResponse.setMsg(e.getMessage());
@@ -102,7 +102,7 @@ public class TipoMedicamentoService extends tipoMedicamentoImplBase{
 		ServerResponse.Builder serverResponse = ServerResponse.newBuilder();
 		
 		try {
-			TipoMedicamentoBO.getInstance().deleteTipoMedicamento(tipo.getNombre_tipo());
+			TipoMedicamentoBO.getInstance().deleteTipoMedicamento(tipo.getNombre_tipo(), tipo.isActivo());
 			serverResponse.setCode(200);
 			serverResponse.setMsg("Eliminado tipo de medicamento");
 		

@@ -38,12 +38,13 @@
         let child = document.createElement(isTh ? 'th' : 'td');
         if (isTh) child.scope = "row"
         if (property == 'activo') {
-            let btn = document.createElement("div");
-            btn.className = element[property] ? "btn btn-success" : "btn btn-danger";
+            let btn = document.createElement("a");
+            btn.className = element[property] ? "btn btn-success text-white" : "btn btn-danger text-white";
             let label = document.createTextNode(element[property] ? "ACTIVO" : "INACTIVO");
             btn.appendChild(label);
             btn.style.width = "100px";
-            btn.dataset = label;
+            btn.setAttribute('data-tipo', element['nombre']);
+            btn.setAttribute('href', '?nombre=' + element['nombre'] + '&activo=' + element['activo']);
             child.appendChild(btn);
         } else {
             child.appendChild(document.createTextNode(element[property]));

@@ -113,9 +113,9 @@ public class TipoMedicamentoDAO {
 		return retorno;
 	}
 	
-	public void deleteTipoMedicamento (String nombre) throws Exception {
+	public void deleteTipoMedicamento (String nombre, boolean activo) throws Exception {
 		try {
-			modificarActivo(nombre, false);
+			modificarActivo(nombre, activo);
 		} catch (Exception e) {
 			String msg = "Error de persistencia - Método deleteMedicamento ";
 			System.out.println(msg);
