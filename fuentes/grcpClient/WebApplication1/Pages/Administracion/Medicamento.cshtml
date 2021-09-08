@@ -12,6 +12,18 @@
                     <i class="fas fa-plus-circle me-1"></i>Nuevo
                 </a>
             </div>
+            <form class="mx-4 mx-md-0" method="post">
+
+                <div class="col-12 col-md-3 mb-3">
+                    <label for="tipo" class="form-label"> Filtrar por tipo de medicamento</label>
+                    <select id="tipo" class="form-select" asp-for="@Model.Tipo" asp-items="@Model.TagOptions" onchange="this.form.submit()">
+                    </select>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <label for="letra" class="form-label"> Filtrar por letra</label>
+                    <input id="letra" class="form-inline" asp-for="@Model.Letra" onchange="this.form.submit()">
+                </div>
+            </form>
         </div>
         <table class="table">
             <thead>

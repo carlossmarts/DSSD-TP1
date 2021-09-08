@@ -22,18 +22,9 @@
                         <input type="text" class="form-control" id="droga" placeholder="Amoxicilina" asp-for="droga" aria-describedby="drogades" required>
                         <div id="drogades" class="form-text">Nombre para describir qué droga es</div>
                     </div>
-                    @*<div class="col-12 col-md-6 mb-3">
-            <label for="tipo" class="form-label">Tipo de medicamento</label>
-            <select id="tipo" class="form-select"  asp-for="tipo" required>
-                <option value="aerosol">Aerosol</option>
-                <option value="crema">Crema</option>
-                <option value="colirio">Colirio</option>
-                <option value="capsulas">Cápsulas</option>
-            </select>
-        </div>*@
                     <div class="col-12 col-md-6 mb-3">
                         <label for="tipo" class="form-label">Tipo de medicamento</label>
-                        @*<select id="tipo" class="form-select" asp-for="tipo" asp-items="@Model.TagOptions" required>*@
+                        <select id="tipo" class="form-select" asp-for="@Model.tipo" asp-items="@Model.TagOptions" required>
                         </select>
                     </div>
                 </div>

@@ -22,16 +22,13 @@ namespace WebApplication1.Pages.Administracion
 
         public SelectList TagOptions { get; set; }
 
-        public string test { get; set; }
-
         public async Task OnGetAsync()
         {
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
             using var channel = GrpcChannel.ForAddress("http://localhost:9000");
             var med = new tipoMedicamento.tipoMedicamentoClient(channel);
-            //var tipos = await med.getAllTipoMedicamentoAsync(new Empty() { }).ResponseAsync.Result.Tipos.ToArray();
-
-            //TagOptions = new SelectList(tipos, "nombre_tipo", "nombre_tipo");
+            var tipos = await med.getAllTipoMedicamentoAsync(new Empty() { });
+            this.TagOptions = new SelectList(tipos.Tipos, "Nombre", "Nombre", this.tipo);
         }
 
         public async Task OnPostAsync()
