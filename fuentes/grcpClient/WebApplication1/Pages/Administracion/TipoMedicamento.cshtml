@@ -1,0 +1,55 @@
+﻿@page
+@model WebApplication1.Pages.Administracion.TipoMedicamentoModel
+@{
+}
+<main role="main" class=" ">
+    <div class="container my-4">
+        <div class="row">
+            <div class="col mb-4">
+                <a href="AltaTipoMedicamento" class="btn btn-success">
+                    <i class="fas fa-plus-circle me-1"></i>Nuevo
+                </a>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Estado</th>
+                </tr>
+            </thead>
+            <tbody id="tiposmedicamentos">
+            </tbody>
+        </table>
+    </div>
+</main>
+<script>
+    let resp = @Html.Raw(Json.Serialize(@Model.ListTipoMedicamento));
+
+    let tableMedicamentos = document.getElementById("tiposmedicamentos")
+    resp.tipos.forEach(medicamento => {
+        let tr = document.createElement("tr");
+        addElement(medicamento, 'nombre', tr, false)
+        addElement(medicamento, 'activo', tr, false)
+        tableMedicamentos.appendChild(tr);
+    });
+
+    function addElement(element, property, parent, isTh) {
+        let child = document.createElement(isTh ? 'th' : 'td');
+        if (isTh) child.scope = "row"
+        if (property == 'activo') {
+            let btn = document.createElement("a");
+            btn.className = element[property] ? "btn btn-success text-white" : "btn btn-danger text-white";
+            let label = document.createTextNode(element[property] ? "ACTIVO" : "INACTIVO");
+            btn.appendChild(label);
+            btn.style.width = "100px";
+            btn.setAttribute('data-tipo', element['nombre']);
+            btn.setAttribute('href', '?nombre=' + element['nombre'] + '&activo=' + element['activo']);
+            child.appendChild(btn);
+        } else {
+            child.appendChild(document.createTextNode(element[property]));
+        }
+        parent.appendChild(child);
+    }
+
+</script>

@@ -1,0 +1,2 @@
+obj\Release\netcoreapp3.1\Protos/Medicamento.cs \
+obj\Release\netcoreapp3.1\Protos/MedicamentoGrpc.cs: Protos/Medicamento.proto

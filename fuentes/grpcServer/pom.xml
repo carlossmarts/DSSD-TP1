@@ -9,12 +9,14 @@
 
 	<dependencies>
 
+		<!-- General -->
 		<dependency>
 			<groupId>javax.annotation</groupId>
 			<artifactId>javax.annotation-api</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
+
+		<!-- gRPC -->
 		<dependency>
 			<groupId>com.google.protobuf</groupId>
 			<artifactId>protobuf-java</artifactId>
@@ -36,6 +38,28 @@
 			<artifactId>grpc-stub</artifactId>
 			<version>1.15.1</version>
 		</dependency>
+
+		<!-- persistencia-->
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.5.7.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>5.5.7.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.26</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<properties>
@@ -44,7 +68,6 @@
 
 	<build>
 		<defaultGoal>clean generate-sources compile install</defaultGoal>
-
 		<plugins>
 			<!-- compile proto file into java files. -->
 			<plugin>
@@ -59,11 +82,9 @@
 						</goals>
 						<configuration>
 							<includeMavenTypes>direct</includeMavenTypes>
-
 							<inputDirectories>
 								<include>src/main/resources</include>
 							</inputDirectories>
-
 							<outputTargets>
 								<outputTarget>
 									<type>java</type>
@@ -79,7 +100,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
