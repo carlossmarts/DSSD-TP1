@@ -47,12 +47,13 @@ namespace WebApplication1.Pages.Administracion
                             {
                                 codepart = int.Parse(codeParts[1]);
 
-                                while (codepart >= 10) {
+                                while (codepart >= 10)
+                                {
                                     var codepartstr = codepart.ToString();
                                     codepart = 0;
                                     foreach (var num in codepartstr)
                                     {
-                                        codepart += int.Parse(num.ToString()); 
+                                        codepart += int.Parse(num.ToString());
                                     }
                                 }
 
@@ -83,15 +84,15 @@ namespace WebApplication1.Pages.Administracion
                         throw new Exception("La primer parte del código debe tener 3 caracteres.");
                     }
                 }
-                else 
+                else
                 {
                     throw new Exception("Estructura del código inválida.");
                 }
             }
-            catch (Exception x) {
+            catch (Exception x)
+            {
                 Response.Redirect("/Error?Message=" + x.Message);
             }
         }
-    }
     }
 }
