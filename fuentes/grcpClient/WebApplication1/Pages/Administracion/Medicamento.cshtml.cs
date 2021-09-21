@@ -41,8 +41,11 @@ namespace WebApplication1.Pages.Administracion
             this.ListMedicamento = await med.getByTipoMedicamentoAsync(new GetByNombreRequest() { Nombre = Tipo });
             var tipos = await tipoMed.getAllTipoMedicamentoAsync(new Empty() { });
 
-            this.ListMedicamento = await med.getMedicamentosByLetraAsync(new GetByNombreRequest() { Nombre = Letra });
+            if (Letra != null)
+            {
+                this.ListMedicamento = await med.getMedicamentosByLetraAsync(new GetByNombreRequest() { Nombre = Letra });
 
+            }
             this.TagOptions = new SelectList(tipos.Tipos, "Nombre", "Nombre", this.Tipo);
         }
     }

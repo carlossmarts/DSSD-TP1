@@ -44,7 +44,7 @@
             btn.appendChild(label);
             btn.style.width = "100px";
             btn.setAttribute('data-tipo', element['nombre']);
-            btn.setAttribute('href', '?nombre=' + element['nombre'] + '&activo=' + element['activo']);
+            btn.setAttribute('href', '?nombre=' + element['nombre'] + '&activo=' + !element['activo']);
             child.appendChild(btn);
         } else {
             child.appendChild(document.createTextNode(element[property]));

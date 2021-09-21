@@ -5,11 +5,11 @@
 <div class="d-flex flex-column m-0 h-100 ">
     <main role="main" class=" ">
         <div class="container my-4">
-            <form class="mx-4 mx-md-0" method="post">
+            <form class="mx-4 mx-md-0" method="post" onsubmit="validar(event)">
                 <div class="row">
                     <div class="col-12 col-md-6 mb-3">
-                        <label for="codigo" class="form-label">Codigo Numerico</label>
-                        <input type="text" class="form-control" id="codigo" placeholder="12345" asp-for="cod_medicamento" required>
+                        <label for="codigo" class="form-label">Código Medicamento</label>
+                        <input type="text" class="form-control" id="codigo" placeholder="PSA-11111-5" asp-for="cod_medicamento" onchange="validar(event)" required>
                     </div>
                     <div class="col-12 col-md-6 mb-3">
                         <label for="nombre" class="form-label">Nombre comercial</label>
@@ -34,6 +34,17 @@
     </main>
 </div>
 <script>
+    const validar = (event) => {
+        let mensaje = "";
+        let cod_medicamento = document.getElementById("codigo").value;
+        if (!validarCodigo(cod_medicamento)) {
+            event.preventDefault();
+            mensaje += "Codigo incorrecto. Verifique que cumpla este formato antes de seguir: \n- Comienza con tres letras \n- La primer letra debe ser P o W \n- A continuacion debe tener 5 digitos \n- debe tener un digito verificador";
+        } else {
+            esPrioritario(cod_medicamento) ? mensaje += "El medicamento es prioritario" : mensaje += "El medicamento no es prioritario";
+        }
+        if (mensaje != "") alert(mensaje);
+    }
     const altaProducto = (event) => {
         event.preventDefault();
         let cod_medicamento = document.getElementById("codigo").value;
@@ -50,103 +61,46 @@
         };
         console.log(request);
     }
+    const validarCodigo = (codigoMedicamento) => {
+        let codValido = false;
 
-    const FormVerificacionCodigo = () => {
-
-        const [codigoMedicamento, setCodigoMedicamento] = useState("");
-        const [codValido, setCodValido] = useState(false);
-        const [existeCodigo, setExisteCodigo] = useState(false);
-        const [mensaje, setMensaje] = useState();
-        const [prioritario, setPrioritario] = useState(undefined);
-
-
-        useEffect(() => {
-            console.log("Prioritario: ", prioritario)
-        }, [prioritario])
-
-
-        const validarCodigo = () => {
-            if (codigoMedicamento) {
-                setExisteCodigo(true)
+        if (codigoMedicamento !== "") {
+            const regex = /^[P,W]{1}[A-Z]{2}\-\d{5}\-\d{1}$/;
+            if (regex.test(codigoMedicamento)) {
                 let partes = codigoMedicamento.split("-")
-                let valido = false //no uso el valor de codValido porque se actualiza de maner asíncrona
-
-                valido = validarEstructura(partes)
-                if (valido) {
-                    valido = verPrioridad(partes[0].toUpperCase());
-                }
-                if (valido) {
-                    valido = validarDigitoVerificador(partes[1], partes[2])
-                }
-
+                codValido = validarDigitoVerificador(partes[1], partes[2])
             }
         }
+        return codValido;
+    }
 
-        const validarEstructura = (partes) => {
-            let valido = true
-            if (partes.length === 3) {
-                const regexNum = /^[0-9]+$/;
-                const regexLetra = /^[A-Z]+$/
-                setCodValido(true)
-                setMensaje("codigo valido")
-                if (!regexLetra.test(partes[0].toUpperCase())) {
-                    setMensaje("El primer bloque deben ser al menos una letra de la A a la Z")
-                    setCodValido(false)
-                    valido = false
-                }
-                if (!regexNum.test(partes[1]) || partes[1].length !== 5) {
-                    setMensaje("El segundo bloque deben ser 5 números del 1 al 9")
-                    setCodValido(false)
-                    valido = false
-                }
-                if (!regexNum.test(partes[2]) || partes[2].length !== 1) {
-                    setMensaje("El tercer bloque deben ser un digito verificador")
-                    setCodValido(false)
-                    valido = false
-                }
-
-            } else {
-                setMensaje("El codigo debe tener tener la estructura 'XX-NNNNN-Y")
-                setCodValido(false)
-                valido = false
-            }
-            return valido;
+    const validarDigitoVerificador = (numero, digito) => {
+        let valido = true;
+        console.log(`Numero: ${numero}, dígito verificador : ${digito}`)
+        while (numero.length > 1) {
+            numero = sumarDigitos(numero)
         }
-
-        const verPrioridad = (str) => {
-            let valido = true
-            if (str[0] === 'P') {
-                setPrioritario(true)
-            } else if (str[0] === 'W') {
-                setPrioritario(false)
-            } else {
-                setMensaje("la primer letra debe ser P o W  ")
-                setCodValido(false)
-                valido = false
-                setPrioritario(undefined)
-            }
-
-            return valido
+        if (numero !== digito) {
+            valido = false
         }
+        return valido;
+    }
 
-        const validarDigitoVerificador = (numero, digito) => {
-            let valido = true;
-            console.log(`Numero: ${numero}, dígito verificador : ${digito}`)
-            while (numero.length > 1) {
-                numero = sumarDigitos(numero)
-            }
-            if (numero !== digito) {
-                valido = false
-                setCodValido(false)
-                setMensaje("el digito verificador es incorrecto")
-            }
-            return valido;
-        }
+    const sumarDigitos = (strNum) => {
+        let resultado = strNum.split('').map(Number).reduce((a, b) => a + b, 0);
+        return "" + resultado;
+    }
 
-        const sumarDigitos = (strNum) => {
-            let resultado = strNum.split('').map(Number).reduce((a, b) => a + b, 0);
-            console.log(resultado);
-            return "" + resultado;
+    const esPrioritario = (str) => {
+        let prioritario = false
+        if (str[0] === 'P') {
+            prioritario = true;
+            return prioritario;
+        } else if (str[0] === 'W') {
+            prioritario = false;
+            return prioritario;
+        } else {
+            console.log("la primer letra debe ser P o W  ")
         }
     }
 </script>
